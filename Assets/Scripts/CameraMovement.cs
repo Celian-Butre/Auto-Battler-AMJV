@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+
         //avancer reculer
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -27,23 +28,24 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             Debug.Log("lever la tête");
-            transform.Rotate(-cameraRotationSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+            transform.Rotate(-cameraRotationSpeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
         }
         else if (Input.GetKey("s"))
         {
             Debug.Log("baisser la tête");
-            transform.Rotate(cameraRotationSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
+            transform.Rotate(cameraRotationSpeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
         }
         else if (Input.GetKey("a"))
         {
             Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -cameraRotationSpeed * Time.deltaTime, 0.0f, Space.World);
+            transform.Rotate(0.0f, -cameraRotationSpeed * Time.deltaTime, 0.0f, Space.Self);
         }
         else if (Input.GetKey("d"))
         {
             Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, cameraRotationSpeed * Time.deltaTime, 0.0f, Space.World);
+            transform.Rotate(0.0f, cameraRotationSpeed * Time.deltaTime, 0.0f, Space.Self);
         }
+        Debug.Log(transform.rotation);
         
         /*
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
