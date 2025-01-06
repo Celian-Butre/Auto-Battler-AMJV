@@ -44,7 +44,7 @@ Grid:
   m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
-  m_CellSwizzle: 0
+  m_CellSwizzle: 1
 --- !u!1 &8685865727674097553
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,8 +77,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 655395719390410262}
-  - {fileID: 7419777258951136470}
-  - {fileID: 8374009506523560158}
+  - {fileID: 8569149613495828703}
+  - {fileID: 5673905631214822146}
   m_Father: {fileID: 1872219524986511259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &7181235655854090676
@@ -271,7 +271,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2349699640150409867, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
   m_PrefabInstance: {fileID: 2991412357702677661}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5072063929640457821
+--- !u!1001 &6228605224821391956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -332,12 +332,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
---- !u!4 &7419777258951136470 stripped
+--- !u!4 &8569149613495828703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2349699640150409867, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
-  m_PrefabInstance: {fileID: 5072063929640457821}
+  m_PrefabInstance: {fileID: 6228605224821391956}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6101737685654960725
+--- !u!1001 &7937044878303863177
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -389,17 +389,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Le Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 6379735427787283729, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
---- !u!4 &8374009506523560158 stripped
+--- !u!4 &5673905631214822146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2349699640150409867, guid: 7de35591262a4b446979b817e38e72c7, type: 3}
-  m_PrefabInstance: {fileID: 6101737685654960725}
+  m_PrefabInstance: {fileID: 7937044878303863177}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1576223957113222779
+--- !u!114 &7580266375760975533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
