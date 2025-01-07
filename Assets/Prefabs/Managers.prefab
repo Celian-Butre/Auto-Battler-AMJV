@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6719587989791917423}
-  - component: {fileID: 4868335703927074556}
+  - component: {fileID: 4260040353481009048}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1385276143910029259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4868335703927074556
+--- !u!114 &4260040353481009048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed16af9570d167a2b8823760227756a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDuckPrefab: {fileID: 2803147189421613720, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
-  greenDuckPrefab: {fileID: 0}
-  blueDuckPrefab: {fileID: 0}
-  yellowDuckPrefab: {fileID: 0}
+  armyManagerEntity: {fileID: 1539837472354018575}
+  greenDuckPrefab: {fileID: 4964552560111410219, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
+  blueDuckPrefab: {fileID: 388890588931946135, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
+  yellowDuckPrefab: {fileID: 5700511204633676644, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
   theCamera: {fileID: 0}
 --- !u!1 &1539837472354018575
 GameObject:

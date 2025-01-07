@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class SpawnBaseDuck : MonoBehaviour
+public class SpawnDucks : MonoBehaviour
 {
-    [SerializeField] GameObject baseDuckPrefab;
-    
+    [SerializeField] GameObject armyManagerEntity; 
     [SerializeField] GameObject greenDuckPrefab;
     [SerializeField] GameObject blueDuckPrefab;
     [SerializeField] GameObject yellowDuckPrefab;
@@ -48,7 +47,11 @@ public class SpawnBaseDuck : MonoBehaviour
         {
             //Debug.Log("Left mouse button clicked!");
             if(didHit){
-                Instantiate(currentlySpawningTroop, (hit.point + new Vector3(0f, baseDuckPrefab.GetComponent<Renderer>().bounds.size.y / 2f ,0f)), Quaternion.identity);
+                GameObject newDuck = Instantiate(currentlySpawningTroop, (hit.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y / 2f,0f)), Quaternion.identity);
+                BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
+                duckScript.setTeam(false);
+                duckScript.setArmyManager(armyManagerEntity);
+
             }
         }
     }

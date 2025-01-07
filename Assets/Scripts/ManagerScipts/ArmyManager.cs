@@ -15,8 +15,8 @@ public class ArmyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Enemy Army + " + enemyArmy);
-        Debug.Log("Player Army + " + playerArmy);
+        //Debug.Log("Enemy Army + " + enemyArmy.Count);
+        //Debug.Log("Player Army + " + playerArmy.Count);
     }
 
     public List<GameObject> getArmy(bool isEnemy){
@@ -24,6 +24,6 @@ public class ArmyManager : MonoBehaviour
     }
 
     public void addTroopToArmy(bool isEnemy, GameObject Duck){
-        (isEnemy ? enemyArmy : playerArmy).add(Duck);
+        (isEnemy ? enemyArmy : playerArmy).Add(Duck);
     }
 }
