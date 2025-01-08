@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.AI;
 public class BaseDuckScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -8,10 +8,15 @@ public class BaseDuckScript : MonoBehaviour
     [SerializeField] GameObject armyManagerEntity;
     private ArmyManager armyManagerScript;
     [SerializeField] GameObject crownPrefab;
+    [SerializeField] int attackMode; //0 do Nothing, 1 attack King
+    NavMeshAgent agent;
+    Vector3 destination;
+    
     void Start()
     {
         armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
         armyManagerScript.addTroopToArmy(isEnemy, gameObject);
+        agent = GetComponent<NavMeshAgent>();
         
         if (hasCrown){
             becomeCrownDuck();
@@ -21,7 +26,11 @@ public class BaseDuckScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (attackMode == 1)
+        {
+            destination = armyManagerScript.getCrownDuck(!isEnemy).transform.position;
+            agent.destination = destination;
+        }
     }
 
     public void setTeam(bool isOnEnemyTeam){
