@@ -15,22 +15,22 @@ public class CameraMovementFlat : MonoBehaviour
         //avancer reculer
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            Debug.Log("avancer");
+            //Debug.Log("avancer");
             transform.Translate(Vector3.forward * Time.deltaTime * cameraMovementSpeed, Space.World);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            Debug.Log("reculer");
+            //Debug.Log("reculer");
             transform.Translate(-Vector3.forward * Time.deltaTime * cameraMovementSpeed, Space.World);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Debug.Log("gauche");
+            //Debug.Log("gauche");
             transform.Translate(-Vector3.right * Time.deltaTime * cameraMovementSpeed, Space.World);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("droite");
+            //Debug.Log("droite");
             transform.Translate(Vector3.right * Time.deltaTime * cameraMovementSpeed, Space.World);
         }
         

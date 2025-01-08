@@ -4,12 +4,18 @@ public class BaseDuckScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private bool isEnemy = true;
-    private bool hasCrown = false;
+    [SerializeField] bool hasCrown = false;
     [SerializeField] GameObject armyManagerEntity;
+    private ArmyManager armyManagerScript;
+    [SerializeField] GameObject crownPrefab;
     void Start()
     {
-        ArmyManager armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
+        armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
         armyManagerScript.addTroopToArmy(isEnemy, gameObject);
+        
+        if (hasCrown){
+            becomeCrownDuck();
+        }
     }
 
     // Update is called once per frame
@@ -29,5 +35,24 @@ public class BaseDuckScript : MonoBehaviour
     public void setArmyManager(GameObject armyManagerEntity)
     {
         this.armyManagerEntity = armyManagerEntity;
+    }
+
+    private void becomeCrownDuck()
+    {
+        hasCrown = true;
+        armyManagerScript.setCrownDuck(isEnemy, gameObject);
+        GameObject crown = Instantiate(crownPrefab, this.transform);
+    }
+    
+    void OnMouseOver()
+    {
+        // Check if the right mouse button is clicked
+        if (Input.GetMouseButtonDown(1)) // 1 is for the right mouse button
+        {
+            if (!armyManagerScript.getCrownDuck(isEnemy) && !isEnemy)
+            {
+                becomeCrownDuck();
+            }
+        }
     }
 }

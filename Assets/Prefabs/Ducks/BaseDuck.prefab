@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 955844250699104249}
   - component: {fileID: 401202446567960980}
   - component: {fileID: 6008069295620554618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseDuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,4 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4f49154a488eadb80c1e6212811ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCrown: 0
   armyManagerEntity: {fileID: 0}
+  crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
