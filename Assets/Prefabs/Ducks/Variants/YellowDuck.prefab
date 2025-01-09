@@ -50,12 +50,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2803147189421613720, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
       propertyPath: m_Name
-      value: BaseDuck (2) Variant
+      value: YellowDuck
       objectReference: {fileID: 0}
     - target: {fileID: 5478768619500298181, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c4ce9d2a8484cc00d840f6ea515128b8, type: 2}
+    - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
+      propertyPath: baseHealth
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

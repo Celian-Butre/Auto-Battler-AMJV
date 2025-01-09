@@ -17743,6 +17743,10 @@ PrefabInstance:
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
+    - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17988,6 +17992,10 @@ PrefabInstance:
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
+    - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
     - target: {fileID: 4964552560111410219, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
       propertyPath: m_Name
       value: GreenDuck
@@ -28586,6 +28594,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03c27cf26adb08d4aa9e17c58e0ef99d, type: 3}
+--- !u!1 &1220291356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5351396182450609706, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
+  m_PrefabInstance: {fileID: 1816512194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1224610026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36845,6 +36858,10 @@ PrefabInstance:
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
+    - target: {fileID: 4222823980985996934, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
     - target: {fileID: 5700511204633676644, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
       propertyPath: m_Name
       value: YellowDuck
@@ -39096,6 +39113,10 @@ PrefabInstance:
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
+    - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42372,6 +42393,10 @@ PrefabInstance:
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 554820876}
+    - target: {fileID: 4260040353481009048, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
     - target: {fileID: 7084469440818071535, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
       propertyPath: m_Name
       value: Managers
