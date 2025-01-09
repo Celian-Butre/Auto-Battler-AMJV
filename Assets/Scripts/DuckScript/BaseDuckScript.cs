@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
+using NUnit.Framework.Constraints;
+using Unity.VisualScripting;
+
 public class BaseDuckScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -10,13 +14,12 @@ public class BaseDuckScript : MonoBehaviour
     private ArmyManager armyManagerScript;
     private GameManager gameManagerScript;
     [SerializeField] GameObject crownPrefab;
-    [SerializeField] int attackMode; //0 do Nothing, 1 attack King
+    [SerializeField] int attackMode = 0; //0 do Nothing, 1 attack King, 2 attack Closest
     NavMeshAgent agent;
     private Rigidbody rigidbody;
     Vector3 destination;
     private float health;
     [SerializeField] private float baseHealth;
-    [SerializeField] private float damage;
     
     void Start()
     {
@@ -42,6 +45,25 @@ public class BaseDuckScript : MonoBehaviour
             {
                 destination = armyManagerScript.getCrownDuck(!isEnemy).transform.position;
                 agent.destination = destination;
+            }
+
+            if (attackMode == 2)
+            {
+                List<GameObject> opposingArmy = armyManagerScript.getArmy(!isEnemy);
+                if (opposingArmy.Count > 0){
+                    GameObject closestOpponent = opposingArmy[0];
+                    float closestDistance = Vector3.Distance(opposingArmy[0].transform.position, transform.position);
+                    foreach (GameObject opposingDuck in opposingArmy)
+                    {
+                        if (Vector3.Distance(opposingDuck.transform.position, transform.position) < closestDistance)
+                        {
+                            closestOpponent = opposingDuck;
+                            closestDistance = Vector3.Distance(opposingDuck.transform.position, transform.position);
+                        }
+                    }
+                    destination = closestOpponent.transform.position;
+                    agent.destination = destination;
+                }
             }
         }
         else
