@@ -14,7 +14,7 @@ public class BaseDuckScript : MonoBehaviour
     private ArmyManager armyManagerScript;
     private GameManager gameManagerScript;
     [SerializeField] GameObject crownPrefab;
-    [SerializeField] int attackMode = 0; //0 do Nothing, 1 attack King, 2 attack Closest
+    [SerializeField] private int attackMode = 0; //0 do Nothing, 1 attack King, 2 attack Closest
     NavMeshAgent agent;
     private Rigidbody rigidbody;
     Vector3 destination;
@@ -85,6 +85,11 @@ public class BaseDuckScript : MonoBehaviour
     {
         this.armyManagerEntity = armyManagerEntity;
     }
+
+    public ArmyManager getArmyManagerScript()
+    {
+        return armyManagerScript;
+    }
     public void setGameManager(GameObject gameManagerEntity)
     {
         this.gameManagerEntity = gameManagerEntity;
@@ -124,6 +129,10 @@ public class BaseDuckScript : MonoBehaviour
         health = (health > baseHealth) ? baseHealth : health;
     }
 
+    public float getHealth()
+    {
+        return health;
+    }
     private void die()
     {
         armyManagerScript.removeTroopFromArmy(hasCrown, armyManagerEntity);
@@ -134,5 +143,14 @@ public class BaseDuckScript : MonoBehaviour
             gameManagerScript.playerWon = isEnemy;
         }
     }
-    
+
+    public int getAttackMode()
+    {
+        return (attackMode);
+    }
+
+    public bool getTeam()
+    {
+        return (isEnemy);
+    }
 }

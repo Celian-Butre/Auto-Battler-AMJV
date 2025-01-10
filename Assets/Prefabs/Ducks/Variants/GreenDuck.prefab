@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5cb8ce6f5d03c4789dc12c8b7dac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  damage: 1
+  range: 1.5
+  damage: 5
   cooldown: 3
   duckLayer:
     serializedVersion: 2

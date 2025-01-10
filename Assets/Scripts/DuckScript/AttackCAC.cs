@@ -8,6 +8,7 @@ public class AttackCAC : MonoBehaviour
     private BaseDuckScript baseDuckScript;
     [SerializeField] private LayerMask duckLayer; // Layer for ducks
     [SerializeField] private LayerMask groundLayer;
+    
     private bool canAttack = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,52 @@ public class AttackCAC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, range, duckLayer);
-        
+        if (canAttack)
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, range, duckLayer);
+            GameObject targetToAttack = null;
+            float distanceToChosenTarget = range;
+            bool targetFound = false;
+            foreach (Collider hit in hits)
+            {
+                Vector3 directionToTarget = hit.transform.position - transform.position;
+                float distanceToTarget = directionToTarget.magnitude;
+
+                if (!Physics.Raycast(transform.position, directionToTarget.normalized, distanceToTarget, groundLayer))
+                {
+                    if (baseDuckScript.getAttackMode() == 1)
+                    {
+                        if (baseDuckScript.getArmyManagerScript().getCrownDuck(!baseDuckScript.getTeam()) ==
+                            hit.gameObject)
+                        {
+                            targetToAttack = hit.gameObject;
+                            targetFound = true;
+                        }
+                    }
+
+                    if (baseDuckScript.getAttackMode() == 2)
+                    {
+                        if (distanceToTarget < distanceToChosenTarget)
+                        {
+                            distanceToChosenTarget = distanceToTarget;
+                            targetToAttack = hit.gameObject;
+                            targetFound = true;
+                        }
+                    }
+                }
+
+            }
+
+            if (targetFound)
+            {
+                Attack(targetToAttack);
+            }
+        }
     }
+
+    private void Attack(GameObject attackTarget)
+    {
+        StartCoroutine(coolDown());
+        attackTarget.GetComponent<BaseDuckScript>().TakeDamage(damage);
+    } 
 }
