@@ -1,27 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 
 public class PVMETER : MonoBehaviour
 {
     [SerializeField] Image PVMeter;
     private float PVm;
+    private float PVMax;
     public Gradient colorGradient;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PVm = 0.2f;
 
     }
 
     // Update is called once per frame
-    public void TakeDamage(float d)
-    {
-        PVm = PVm - d;
-    }
     void Update()
     {
-
+        Debug.Log("JE SUIS LA");
         var gradient = new Gradient();
 
         var colors = new GradientColorKey[2];
@@ -34,6 +30,8 @@ public class PVMETER : MonoBehaviour
 
         gradient.SetKeys(colors, alphas);
 
+        PVm = GetComponent<BaseDuckScript>().getHealth() / GetComponent<BaseDuckScript>().getBaseHealth();
+        Debug.Log(PVm);
         PVMeter.fillAmount = PVm;
         PVMeter.color = colorGradient.Evaluate(PVm);
     }

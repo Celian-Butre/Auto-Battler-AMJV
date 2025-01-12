@@ -133,6 +133,11 @@ public class BaseDuckScript : MonoBehaviour
     {
         return health;
     }
+
+    public float getBaseHealth()
+    {
+        return baseHealth;
+    }
     private void die()
     {
         armyManagerScript.removeTroopFromArmy(hasCrown, armyManagerEntity);
