@@ -15,7 +15,7 @@ public class BaseDuckScript : MonoBehaviour
     private ArmyManager armyManagerScript;
     private GameManager gameManagerScript;
     [SerializeField] GameObject crownPrefab;
-    [SerializeField] private int attackMode = 0; //0 do Nothing, 1 attack King, 2 attack Closest
+    [SerializeField] private int attackMode = 0; //0 do Nothing, 1 offense, 2 Neutre, 3 Défense
     NavMeshAgent agent;
     private Rigidbody rigidbody;
     Vector3 destination;
@@ -115,6 +115,25 @@ public class BaseDuckScript : MonoBehaviour
                 agent.destination = destination;
             }
         }
+
+        if (attackMode == 3)
+        {
+            List<GameObject> opposingArmy = armyManagerScript.getArmy(!isEnemy);
+            if (opposingArmy.Count > 0){
+                GameObject closestOpponent = opposingArmy[0];
+                float closestDistance = Vector3.Distance(opposingArmy[0].transform.position, armyManagerScript.getCrownDuck(isEnemy).transform.position);
+                foreach (GameObject opposingDuck in opposingArmy)
+                {
+                    if (Vector3.Distance(opposingDuck.transform.position, armyManagerScript.getCrownDuck(isEnemy).transform.position) < closestDistance)
+                    {
+                        closestOpponent = opposingDuck;
+                        closestDistance = Vector3.Distance(opposingDuck.transform.position, armyManagerScript.getCrownDuck(isEnemy).transform.position);
+                    }
+                }
+                destination = closestOpponent.transform.position;
+                agent.destination = destination;
+            }
+        }
     }
 
     public void setTeam(bool isOnEnemyTeam){
@@ -139,7 +158,7 @@ public class BaseDuckScript : MonoBehaviour
         this.gameManagerEntity = gameManagerEntity;
     }
 
-    private void becomeCrownDuck()
+    public void becomeCrownDuck()
     {
         hasCrown = true;
         armyManagerScript.setCrownDuck(isEnemy, gameObject);

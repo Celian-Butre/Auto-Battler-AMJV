@@ -38,6 +38,10 @@ public class AttackCAC : MonoBehaviour
                 {
                     Vector3 directionToTarget = hit.transform.position - transform.position;
                     float distanceToTarget = directionToTarget.magnitude;
+                    if (baseDuckScript.getAttackMode() == 3)
+                    {
+                        distanceToTarget = Vector3.Distance(baseDuckScript.getArmyManagerScript().getCrownDuck(baseDuckScript.getTeam()).transform.position, hit.transform.position);
+                    }
 
                     if (!Physics.Raycast(transform.position, directionToTarget.normalized, distanceToTarget,
                             groundLayer))
@@ -54,7 +58,7 @@ public class AttackCAC : MonoBehaviour
                                 }
                             }
 
-                            if (baseDuckScript.getAttackMode() == 2)
+                            if (baseDuckScript.getAttackMode() == 2 || baseDuckScript.getAttackMode() == 3)
                             {
                                 if (distanceToTarget < distanceToChosenTarget)
                                 {
