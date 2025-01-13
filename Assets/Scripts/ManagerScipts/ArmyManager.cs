@@ -19,7 +19,7 @@ public class ArmyManager : MonoBehaviour
     {
         //Debug.Log("Enemy Count : " + enemyArmy.Count);
         //Debug.Log("Player Count : " + playerArmy.Count);
-        Debug.Log(playerCrownDuck.GetComponent<BaseDuckScript>().getHealth());
+        //Debug.Log(enemyCrownDuck.GetComponent<BaseDuckScript>().getHealth());
     }
 
     public List<GameObject> getArmy(bool isEnemy){

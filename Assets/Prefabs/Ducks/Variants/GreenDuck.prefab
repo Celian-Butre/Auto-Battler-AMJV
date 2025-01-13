@@ -61,8 +61,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
       propertyPath: baseHealth
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -89,8 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5cb8ce6f5d03c4789dc12c8b7dac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 1.5
-  damage: 5
+  range: 0.75
+  damage: 2
   cooldown: 3
   duckLayer:
     serializedVersion: 2

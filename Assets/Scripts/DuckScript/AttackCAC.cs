@@ -26,45 +26,52 @@ public class AttackCAC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canAttack)
+        if (baseDuckScript.getGameManagerScript().combatPhase)
         {
-            Collider[] hits = Physics.OverlapSphere(transform.position, range, duckLayer);
-            GameObject targetToAttack = null;
-            float distanceToChosenTarget = range;
-            bool targetFound = false;
-            foreach (Collider hit in hits)
+            if (canAttack)
             {
-                Vector3 directionToTarget = hit.transform.position - transform.position;
-                float distanceToTarget = directionToTarget.magnitude;
-
-                if (!Physics.Raycast(transform.position, directionToTarget.normalized, distanceToTarget, groundLayer))
+                Collider[] hits = Physics.OverlapSphere(transform.position, range, duckLayer);
+                GameObject targetToAttack = null;
+                float distanceToChosenTarget = range;
+                bool targetFound = false;
+                foreach (Collider hit in hits)
                 {
-                    if (baseDuckScript.getAttackMode() == 1)
+                    Vector3 directionToTarget = hit.transform.position - transform.position;
+                    float distanceToTarget = directionToTarget.magnitude;
+
+                    if (!Physics.Raycast(transform.position, directionToTarget.normalized, distanceToTarget,
+                            groundLayer))
                     {
-                        if (baseDuckScript.getArmyManagerScript().getCrownDuck(!baseDuckScript.getTeam()) ==
-                            hit.gameObject)
+                        if (baseDuckScript.getArmyManagerScript().getArmy(!baseDuckScript.getTeam()).Contains(hit.gameObject))
                         {
-                            targetToAttack = hit.gameObject;
-                            targetFound = true;
+                            if (baseDuckScript.getAttackMode() == 1)
+                            {
+                                if (baseDuckScript.getArmyManagerScript().getCrownDuck(!baseDuckScript.getTeam()) ==
+                                    hit.gameObject)
+                                {
+                                    targetToAttack = hit.gameObject;
+                                    targetFound = true;
+                                }
+                            }
+
+                            if (baseDuckScript.getAttackMode() == 2)
+                            {
+                                if (distanceToTarget < distanceToChosenTarget)
+                                {
+                                    distanceToChosenTarget = distanceToTarget;
+                                    targetToAttack = hit.gameObject;
+                                    targetFound = true;
+                                }
+                            }
                         }
                     }
 
-                    if (baseDuckScript.getAttackMode() == 2)
-                    {
-                        if (distanceToTarget < distanceToChosenTarget)
-                        {
-                            distanceToChosenTarget = distanceToTarget;
-                            targetToAttack = hit.gameObject;
-                            targetFound = true;
-                        }
-                    }
                 }
 
-            }
-
-            if (targetFound)
-            {
-                Attack(targetToAttack);
+                if (targetFound)
+                {
+                    Attack(targetToAttack);
+                }
             }
         }
     }

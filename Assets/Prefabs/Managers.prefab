@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armyManagerEntity: {fileID: 1539837472354018575}
+  gameManagerEntity: {fileID: 5351396182450609706}
   greenDuckPrefab: {fileID: 4964552560111410219, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
   blueDuckPrefab: {fileID: 388890588931946135, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
   yellowDuckPrefab: {fileID: 5700511204633676644, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
@@ -181,6 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b44c52b4de179af282b4cf5f073b748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionPhase: 1
+  combatPhase: 0
+  foundWinner: 0
+  playerWon: 0
 --- !u!1 &7084469440818071535
 GameObject:
   m_ObjectHideFlags: 0

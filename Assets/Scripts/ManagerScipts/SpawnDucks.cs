@@ -9,6 +9,7 @@ public class SpawnDucks : MonoBehaviour
     [SerializeField] GameObject blueDuckPrefab;
     [SerializeField] GameObject yellowDuckPrefab;
     [SerializeField] GameObject theCamera;
+    [SerializeField] GameObject healthCanvas;
     LayerMask layerMask;
     private bool didHit;
 
@@ -55,6 +56,7 @@ public class SpawnDucks : MonoBehaviour
                 duckScript.setTeam(false);
                 duckScript.setArmyManager(armyManagerEntity);
                 duckScript.setGameManager(gameManagerEntity);
+                duckScript.setHealthCanvas(healthCanvas);
             }
         }
     }
