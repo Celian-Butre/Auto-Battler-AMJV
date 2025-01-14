@@ -6,14 +6,17 @@ public class AttackCAC : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float cooldown;
     private BaseDuckScript baseDuckScript;
-    [SerializeField] private LayerMask duckLayer; // Layer for ducks
-    [SerializeField] private LayerMask groundLayer;
+    private LayerMask duckLayer; // Layer for ducks
+    private LayerMask wallLayer;
+    
     
     private bool canAttack = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         baseDuckScript = gameObject.GetComponent<BaseDuckScript>();
+        duckLayer = LayerMask.GetMask("Duck");
+        wallLayer = LayerMask.GetMask("Wall");
     }
     
     IEnumerator coolDown()
@@ -44,7 +47,7 @@ public class AttackCAC : MonoBehaviour
                     }
 
                     if (!Physics.Raycast(transform.position, directionToTarget.normalized, distanceToTarget,
-                            groundLayer))
+                            wallLayer))
                     {
                         if (baseDuckScript.getArmyManagerScript().getArmy(!baseDuckScript.getTeam()).Contains(hit.gameObject))
                         {

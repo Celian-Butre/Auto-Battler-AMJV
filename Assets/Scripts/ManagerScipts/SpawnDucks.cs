@@ -21,7 +21,7 @@ public class SpawnDucks : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        layerMask = LayerMask.GetMask("Ground");
+        layerMask = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
         currentlySpawningTroop = greenDuckPrefab;
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
     }

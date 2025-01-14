@@ -158,6 +158,7 @@ MonoBehaviour:
   baseHealth: 0
   healthBarPrefab: {fileID: 4684072751847249396, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
   healthCanvas: {fileID: 0}
+  baseSpeed: 5
 --- !u!195 &5659815118843726847
 NavMeshAgent:
   m_ObjectHideFlags: 0

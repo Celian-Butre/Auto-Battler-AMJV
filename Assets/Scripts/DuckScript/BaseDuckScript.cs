@@ -17,7 +17,7 @@ public class BaseDuckScript : MonoBehaviour
     [SerializeField] GameObject crownPrefab;
     [SerializeField] private int attackMode = 0; //0 do Nothing, 1 offense, 2 Neutre, 3 Défense
     NavMeshAgent agent;
-    private Rigidbody rigidbody;
+    private Rigidbody duckRB;
     Vector3 destination;
     private float health;
     [SerializeField] private float baseHealth;
@@ -29,6 +29,9 @@ public class BaseDuckScript : MonoBehaviour
     private float DuckHeight;
     private GameObject healthBarInside;
     private Image healthBarGradient;
+    private float raycastDistance = 1.0f; //for getting ground material
+    private LayerMask allGroundLayers;
+    [SerializeField] private float baseSpeed;
     
     void Start()
     {
@@ -37,7 +40,7 @@ public class BaseDuckScript : MonoBehaviour
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
         armyManagerScript.addTroopToArmy(isEnemy, gameObject);
         agent = GetComponent<NavMeshAgent>();
-        rigidbody = gameObject.GetComponent<Rigidbody>();
+        duckRB = gameObject.GetComponent<Rigidbody>();
         healthCanvasRect = healthCanvas.GetComponent<RectTransform>();
         
         if (hasCrown){
@@ -45,6 +48,7 @@ public class BaseDuckScript : MonoBehaviour
         }
         
         DuckHeight = GetComponent<Renderer>().bounds.size.y;
+        allGroundLayers = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
     }
 
     // Update is called once per frame
@@ -56,7 +60,7 @@ public class BaseDuckScript : MonoBehaviour
         }
         else
         {
-            rigidbody.isKinematic = true;
+            duckRB.isKinematic = true;
         }
 
         if (health != baseHealth)
@@ -64,6 +68,20 @@ public class BaseDuckScript : MonoBehaviour
             displayHealthBar();
         }
         
+        Vector3 rayOrigin = transform.position;
+        Ray ray = new Ray(rayOrigin, Vector3.down);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, raycastDistance, allGroundLayers))
+        {
+            if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Dirt")
+            {
+                agent.speed = baseSpeed;
+            } else if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Sand")
+            {
+                agent.speed = baseSpeed/2;
+            }
+        }
     }
 
     public void displayHealthBar()
@@ -90,7 +108,7 @@ public class BaseDuckScript : MonoBehaviour
     }
     public void updateMovement()
     {
-        rigidbody.isKinematic = false;
+        duckRB.isKinematic = false;
         if (attackMode == 1 && armyManagerScript.getCrownDuck(!isEnemy))
         {
             destination = armyManagerScript.getCrownDuck(!isEnemy).transform.position;
