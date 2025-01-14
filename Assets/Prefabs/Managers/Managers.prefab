@@ -50,6 +50,7 @@ MonoBehaviour:
   blueDuckPrefab: {fileID: 388890588931946135, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
   yellowDuckPrefab: {fileID: 5700511204633676644, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
   theCamera: {fileID: 0}
+  healthCanvas: {fileID: 0}
 --- !u!1 &1539837472354018575
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3571324bf01bd9d9f5bce9b92fb36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerScript: {fileID: 2905303953479488867}
 --- !u!1 &3421645567523393970
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +188,8 @@ MonoBehaviour:
   combatPhase: 0
   foundWinner: 0
   playerWon: 0
+  armyManager: {fileID: 8925766905164156712}
+  unlockedLevelsManager: {fileID: 8048570460633061697}
 --- !u!1 &7084469440818071535
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,5 +223,79 @@ Transform:
   - {fileID: 1196266814689543010}
   - {fileID: 1444816915386806410}
   - {fileID: 2202945969393503076}
+  - {fileID: 4473475774394959870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2428505028115901372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1385276143910029259}
+    m_Modifications:
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495613347935683171, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+      propertyPath: m_Name
+      value: Unlocked Levels
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+--- !u!4 &4473475774394959870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2280847773735169090, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+  m_PrefabInstance: {fileID: 2428505028115901372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8048570460633061697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5620928033749037821, guid: 1e6d87758ffca7fa0ab258ab9769ff02, type: 3}
+  m_PrefabInstance: {fileID: 2428505028115901372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f665727602dd2411b714a7aae91bf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

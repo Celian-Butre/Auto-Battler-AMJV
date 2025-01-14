@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     public bool foundWinner = false;
 
     public bool playerWon;
+    [SerializeField] public int currentLevel;
+    [SerializeField] public int difficulty;
     [SerializeField] public ArmyManager armyManager;
+    [SerializeField] public UnlockedLevelsManager unlockedLevelsManager;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,6 +51,12 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
+    public void endOfLevel(bool thePlayerWon)
+    {
+        foundWinner = true;
+        playerWon = thePlayerWon;
+        unlockedLevelsManager.beatCurrentLevel(currentLevel, difficulty);
+    } 
     
 }

@@ -221,13 +221,7 @@ public class BaseDuckScript : MonoBehaviour
     }
     private void die()
     {
-        armyManagerScript.removeTroopFromArmy(hasCrown, armyManagerEntity);
-        if (hasCrown)
-        {
-            gameManagerScript.foundWinner = true;
-            gameManagerScript.playerWon = isEnemy;
-        }
-        armyManagerScript.removeTroopFromArmy(isEnemy, gameObject);
+        armyManagerScript.kill(isEnemy, gameObject, hasCrown);
         Destroy(healthBar);
         Destroy(gameObject);
     }

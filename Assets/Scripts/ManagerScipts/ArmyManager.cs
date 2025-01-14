@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class ArmyManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ArmyManager : MonoBehaviour
     private List<GameObject> playerArmy = new List<GameObject>();
     private GameObject enemyCrownDuck;
     private GameObject playerCrownDuck;
+    [SerializeField] private GameManager gameManagerScript;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,4 +50,15 @@ public class ArmyManager : MonoBehaviour
     {
         return(isEnemy ? enemyCrownDuck : playerCrownDuck);
     }
+
+    public void kill(bool isEnemy, GameObject Duck, bool hasCrown)
+    {
+        removeTroopFromArmy(isEnemy, Duck);
+        if (hasCrown)
+        {
+            gameManagerScript.endOfLevel(isEnemy);
+        }
+        removeTroopFromArmy(isEnemy, gameObject);
+    }
+    
 }
