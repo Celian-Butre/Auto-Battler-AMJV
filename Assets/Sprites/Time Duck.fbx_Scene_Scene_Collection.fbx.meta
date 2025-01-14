@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c3060a34ff961c449be6d0fc2c74503
+guid: 6115ae568bd9b56489dd72b48ff99119
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
+      name: Material.001
     second: {fileID: 2100000, guid: 2f1f7e01dde611e4896c64d7c7c07c42, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: knife
     second: {fileID: 2100000, guid: b55f72c27b0f92848a02279c1b7d093b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041F\u043E\u0434\u0441\u0442\u0430\u0432\u043A\u0430"
+    second: {fileID: 2100000, guid: c4a9cec93dc03064cae3962c3bcd3b50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0420\u0430\u043C\u043A\u0430"
+    second: {fileID: 2100000, guid: f16cc018bb78d964cb7894c9f1dfc7c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0421\u0442\u0435\u043A\u043B\u043E"
+    second: {fileID: 2100000, guid: 49d0e2c3fb3f8444d9e708306f6bf643, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0422\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u0438\u043A\u0438"
+    second: {fileID: 2100000, guid: 98f321ade0310a240a6f3bbf4b86b776, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043F\u0435\u0441\u043E\u043A"
+    second: {fileID: 2100000, guid: d6fff2783177cb24285c3acbdd6c041d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
