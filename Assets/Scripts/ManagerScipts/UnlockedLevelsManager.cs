@@ -46,4 +46,9 @@ public class UnlockedLevelsManager : MonoBehaviour
             }
         }
     }
+
+    public int getLevelStatus(int level)
+    {
+        return unlockedLevels[level];
+    }
 }
