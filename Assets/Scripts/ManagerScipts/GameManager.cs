@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
-    public bool selectionPhase = true;
+    public bool difficultySelectionPhase = true;
+    public bool spawningPhase = false;
 
     public bool combatPhase = false;
 
@@ -17,12 +19,40 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int currentCoins;
     [SerializeField] private GameObject coinDisplay;
     private TextMeshProUGUI coinDisplayMesh;
+    [SerializeField] private GameObject coinDisplayCanvas;
+    [SerializeField] private GameObject difficultySelectionCanvas;
+    [SerializeField] private RawImage highScoreImage;
+    [SerializeField] private Texture bronzeSprite;
+    [SerializeField] private Texture silverSprite;
+    [SerializeField] private Texture goldSprite;
+    [SerializeField] private Texture notBeatenSprite;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        coinDisplayCanvas.SetActive(false);
         coinDisplayMesh = coinDisplay.GetComponent<TextMeshProUGUI>();
-        currentCoins = (int) (baseCoins * (difficulty == 1 ? 1.2f : (difficulty == 3 ? 0.8f : 1f)));
+        
+        int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
+        switch (highScore)
+        {
+            case 0:
+                highScoreImage.texture = notBeatenSprite;
+                break;
+            case 1:
+                highScoreImage.texture = notBeatenSprite;
+                break;
+            case 2:
+                highScoreImage.texture = bronzeSprite;
+                break;
+            case 3:
+                highScoreImage.texture = silverSprite;
+                break;
+            case 4:
+                highScoreImage.texture = goldSprite;
+                break;
+        }
+        
     }
 
     // Update is called once per frame
@@ -31,9 +61,9 @@ public class GameManager : MonoBehaviour
         coinDisplayMesh.text = currentCoins.ToString();
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (selectionPhase)
+            if (spawningPhase)
             {
-                selectionPhase = false;
+                spawningPhase = false;
                 combatPhase = true;
                 if (armyManager.getArmy(true).Count == 0)
                 {
@@ -77,5 +107,15 @@ public class GameManager : MonoBehaviour
     public void refundCoins(int amount)
     {
         currentCoins += amount;
+    }
+
+    public void SelectDifficulty(int selectedDifficulty)
+    {
+        difficultySelectionPhase = false;
+        spawningPhase = true;
+        difficulty = selectedDifficulty;
+        coinDisplayCanvas.SetActive(true);
+        difficultySelectionCanvas.SetActive(false);
+        currentCoins = (int)(baseCoins * (difficulty == 1 ? 1.2f : (difficulty == 3 ? 0.8f : 1f)));
     }
 }

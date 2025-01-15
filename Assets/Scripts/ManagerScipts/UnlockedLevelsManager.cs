@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 public class UnlockedLevelsManager : MonoBehaviour
 {
-    
-
     [SerializeField] private bool mainMenuLevel;
     static public List<int> unlockedLevels; //0 = locked, 1 = unlocked not beaten, 2 = beaten easy, 3 = beaten medium, 4 = beaten hard
     private int howManyLevels = 5;
@@ -19,6 +17,9 @@ public class UnlockedLevelsManager : MonoBehaviour
             }
 
             unlockedLevels[0] = 1;
+            unlockedLevels[1] = 2;
+            unlockedLevels[2] = 3;
+            unlockedLevels[3] = 4;
         }
     }
 
@@ -34,21 +35,26 @@ public class UnlockedLevelsManager : MonoBehaviour
         {
             if (currentLevel != howManyLevels - 1)
             {
-                if (unlockedLevels[currentLevel + 1] == 0)
+                if (unlockedLevels[currentLevel] == 0)
                 {
                     unlockedLevels[currentLevel] = 1;
                 }
             }
 
-            if (unlockedLevels[currentLevel] < difficulty + 1)
+            if (unlockedLevels[currentLevel - 1] < difficulty + 1)
             {
-                unlockedLevels[currentLevel] = difficulty + 1;
+                unlockedLevels[currentLevel - 1] = difficulty + 1;
             }
         }
     }
 
     public int getLevelStatus(int level)
     {
-        return unlockedLevels[level];
+        return unlockedLevels[level - 1];
+    }
+
+    public List<int> getAllStatuses()
+    {
+        return unlockedLevels;
     }
 }

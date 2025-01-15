@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
         {
             bool didSpawn = false;
             GameObject spawnedUI = null;
-            switch (unlockedLevelsManager.getLevelStatus(i))
+            switch (unlockedLevelsManager.getLevelStatus(i+1))
             {
                 case 0:
                     didSpawn = true;
@@ -49,7 +49,6 @@ public class MenuManager : MonoBehaviour
             if (didSpawn)
             {
                 spawnedUI.transform.SetParent(levelButtons[i].transform, false);
-                spawnedUI.transform.localPosition = Vector3.zero;
             }
                 
         }
@@ -85,8 +84,8 @@ public class MenuManager : MonoBehaviour
 
     public void goToLevel(int level)
     {
-        Debug.Log(unlockedLevelsManager.getLevelStatus(level - 1));
-        if (unlockedLevelsManager.getLevelStatus(level - 1) != 0)
+        //Debug.Log(unlockedLevelsManager.getLevelStatus(level));
+        if (unlockedLevelsManager.getLevelStatus(level) != 0)
         {
             SceneManager.LoadScene(levels[level - 1]);
             Debug.Log("Go To Level " + level);

@@ -53,7 +53,7 @@ public class SpawnDucks : MonoBehaviour
             }
         }
 
-        if (gameManagerScript.selectionPhase && Input.GetMouseButtonDown(0))
+        if (gameManagerScript.spawningPhase && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             didHitGround = Physics.Raycast(ray, out hitGround, Mathf.Infinity, groundLayerMask);
