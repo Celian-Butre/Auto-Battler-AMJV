@@ -190,6 +190,16 @@ public class BaseDuckScript : MonoBehaviour
         armyManagerScript.removeCrownDuck(isEnemy);
         Destroy(crown);
     }
+
+    public void despawn()
+    {
+        if (hasCrown)
+        {
+            armyManagerScript.removeCrownDuck(isEnemy);
+        }
+        armyManagerScript.removeTroopFromArmy(isEnemy, gameObject);
+        Destroy(gameObject);
+    }
     
     void OnMouseOver()
     {
