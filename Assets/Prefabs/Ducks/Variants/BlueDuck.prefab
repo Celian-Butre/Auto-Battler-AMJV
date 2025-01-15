@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: faeed0ebc4cad58819b48435a2c71460, type: 2}
     - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
+      propertyPath: cost
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008069295620554618, guid: e11f2a345a4be2d1bacd91460520892e, type: 3}
       propertyPath: damage
       value: 5
       objectReference: {fileID: 0}
@@ -96,9 +100,3 @@ MonoBehaviour:
   range: 0.75
   damage: 2
   cooldown: 3
-  duckLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0

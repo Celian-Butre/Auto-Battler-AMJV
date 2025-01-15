@@ -33,6 +33,7 @@ public class BaseDuckScript : MonoBehaviour
     private LayerMask allGroundLayers;
     [SerializeField] private float baseSpeed;
     private GameObject crown;
+    [SerializeField] public int cost = 5;
     
     void Start()
     {
@@ -198,6 +199,7 @@ public class BaseDuckScript : MonoBehaviour
             armyManagerScript.removeCrownDuck(isEnemy);
         }
         armyManagerScript.removeTroopFromArmy(isEnemy, gameObject);
+        gameManagerScript.refundCoins(cost);
         Destroy(gameObject);
     }
     

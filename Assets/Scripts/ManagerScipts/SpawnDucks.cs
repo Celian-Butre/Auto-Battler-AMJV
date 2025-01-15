@@ -63,12 +63,17 @@ public class SpawnDucks : MonoBehaviour
             {
                 hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().despawn();
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
-                GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y / 2f,0f)), Quaternion.identity);
-                BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
-                duckScript.setTeam(false);
-                duckScript.setArmyManager(armyManagerEntity);
-                duckScript.setGameManager(gameManagerEntity);
-                duckScript.setHealthCanvas(healthCanvas);
+                if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
+                { 
+                    GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y / 2f,0f)), Quaternion.identity);
+                    BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
+                    duckScript.setTeam(false);
+                    duckScript.setArmyManager(armyManagerEntity);
+                    duckScript.setGameManager(gameManagerEntity);
+                    duckScript.setHealthCanvas(healthCanvas);
+                    gameManagerScript.spendCoins(duckScript.cost);
+                }
+                
             }
         }
     }
