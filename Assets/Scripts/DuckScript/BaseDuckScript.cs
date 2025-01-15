@@ -32,6 +32,7 @@ public class BaseDuckScript : MonoBehaviour
     private float raycastDistance = 1.0f; //for getting ground material
     private LayerMask allGroundLayers;
     [SerializeField] private float baseSpeed;
+    private GameObject crown;
     
     void Start()
     {
@@ -180,7 +181,14 @@ public class BaseDuckScript : MonoBehaviour
     {
         hasCrown = true;
         armyManagerScript.setCrownDuck(isEnemy, gameObject);
-        GameObject crown = Instantiate(crownPrefab, this.transform);
+        crown = Instantiate(crownPrefab, this.transform);
+    }
+    
+    public void loseMyCrown()
+    {
+        hasCrown = false;
+        armyManagerScript.removeCrownDuck(isEnemy);
+        Destroy(crown);
     }
     
     void OnMouseOver()
@@ -191,6 +199,10 @@ public class BaseDuckScript : MonoBehaviour
             if (!armyManagerScript.getCrownDuck(isEnemy) && !isEnemy)
             {
                 becomeCrownDuck();
+            }
+            else if (armyManagerScript.getCrownDuck(isEnemy) == gameObject && !isEnemy)
+            {
+                loseMyCrown();
             }
         }
     }

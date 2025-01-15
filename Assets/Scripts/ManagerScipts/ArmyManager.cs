@@ -21,7 +21,7 @@ public class ArmyManager : MonoBehaviour
     {
         //Debug.Log("Enemy Count : " + enemyArmy.Count);
         //Debug.Log("Player Count : " + playerArmy.Count);
-        //Debug.Log(enemyCrownDuck.GetComponent<BaseDuckScript>().getHealth());
+        //Debug.Log(playerCrownDuck);
     }
 
     public List<GameObject> getArmy(bool isEnemy){
@@ -43,6 +43,18 @@ public class ArmyManager : MonoBehaviour
             enemyCrownDuck = CrownDuck;
         } else {
             playerCrownDuck = CrownDuck;
+        }
+    }
+
+    public void removeCrownDuck(bool isEnemy)
+    {
+        if (isEnemy)
+        {
+            enemyCrownDuck = null;
+        }
+        else
+        {
+            playerCrownDuck = null;
         }
     }
 
