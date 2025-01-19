@@ -4,7 +4,12 @@ using System.Collections;
 public class Daffy : MonoBehaviour
 {
     [SerializeField] private GameObject Sword;
-    float duration = 3.0f;
+    private Rigidbody rib;
+    float RotSpeed = 300.0f;
+
+    [SerializeField] float explosionRadius;  
+    [SerializeField] float explosionForce;  
+    private float upwardModifier = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,26 +43,53 @@ public class Daffy : MonoBehaviour
             Debug.Log("tourner la tête à droite");
             transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Attaque");
             StartCoroutine(Rotate360());
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("DAFFY SMASH");
+            StartCoroutine(Rotate360());
+            Explode();
+
         }
     }
 
     IEnumerator Rotate360()
     {
 
-        Quaternion startRot = Sword.transform.rotation;
-        float t = 0.0f;
-        while (t < duration)
+        bool IsFinish = true;
+
+        while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x)>0.05f)
         {
-            t += Time.deltaTime;
-            Sword.transform.rotation = startRot * Quaternion.AngleAxis(t / duration * 360f, Vector3.right); 
+            //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
+            Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
+            if (Mathf.Abs(Sword.transform.localRotation.x)>0.1f)
+            {
+                IsFinish = false;
+            }
             yield return null;
         }
-        Sword.transform.rotation=Quaternion.identity;
-        t = 0;
+        Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
+    }
+
+    void Explode()
+    {
+        rib = GetComponent<Rigidbody>();
+        Vector3 explosionPosition = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
+
+        foreach (Collider collider in colliders)
+        {
+            Rigidbody rb = collider.GetComponent<Rigidbody>();
+            if (rb != null & rb != rib)
+            {
+                rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardModifier, ForceMode.Impulse);
+            }
+        }
     }
 }
 
