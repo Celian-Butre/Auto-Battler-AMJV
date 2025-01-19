@@ -156,9 +156,10 @@ MonoBehaviour:
   crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
   attackMode: 1
   baseHealth: 0
-  healthBarPrefab: {fileID: 4684072751847249396, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
+  healthBarPrefab: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
   healthCanvas: {fileID: 0}
   baseSpeed: 5
+  cost: 0
 --- !u!195 &5659815118843726847
 NavMeshAgent:
   m_ObjectHideFlags: 0

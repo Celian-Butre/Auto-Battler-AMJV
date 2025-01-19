@@ -13170,7 +13170,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
       propertyPath: hasCrown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
       propertyPath: attackMode
@@ -13180,6 +13180,10 @@ PrefabInstance:
       propertyPath: healthCanvas
       value: 
       objectReference: {fileID: 1172642305}
+    - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
     - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
       propertyPath: armyManagerEntity
       value: 
@@ -17735,6 +17739,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1172642305}
     - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
+    - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -17995,6 +18003,10 @@ PrefabInstance:
       propertyPath: healthCanvas
       value: 
       objectReference: {fileID: 1172642305}
+    - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
     - target: {fileID: 3558854111439520201, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
       propertyPath: armyManagerEntity
       value: 
@@ -36848,6 +36860,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1172642305}
     - target: {fileID: 4222823980985996934, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
+    - target: {fileID: 4222823980985996934, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -39179,12 +39195,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
       propertyPath: hasCrown
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
       propertyPath: healthCanvas
       value: 
       objectReference: {fileID: 1172642305}
+    - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
     - target: {fileID: 8134531561480465269, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
       propertyPath: armyManagerEntity
       value: 

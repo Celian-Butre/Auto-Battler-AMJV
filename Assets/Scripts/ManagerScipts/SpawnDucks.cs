@@ -61,7 +61,10 @@ public class SpawnDucks : MonoBehaviour
             bool didHitDuck = Physics.Raycast(ray, out hitDuck, Mathf.Infinity, duckLayerMask);
             if (didHitDuck && (!didHitNoSpawn || hitDuck.distance < hitNoSpawn.distance) && (!didHitGround || hitDuck.distance <= hitGround.distance))
             {
-                hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().despawn();
+                if (!hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().getTeam())
+                {
+                    hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().despawn();
+                }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
                 { 
