@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI coinDisplayMesh;
     [SerializeField] private GameObject coinDisplayCanvas;
     [SerializeField] private GameObject difficultySelectionCanvas;
+    [SerializeField] private GameObject troopSelectionCanvas;
     [SerializeField] private RawImage highScoreImage;
     [SerializeField] private Texture bronzeSprite;
     [SerializeField] private Texture silverSprite;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         coinDisplayCanvas.SetActive(false);
+        troopSelectionCanvas.SetActive(false);
         coinDisplayMesh = coinDisplay.GetComponent<TextMeshProUGUI>();
         
         int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
         {
             if (spawningPhase)
             {
+                troopSelectionCanvas.SetActive(false);
                 spawningPhase = false;
                 combatPhase = true;
                 if (armyManager.getArmy(true).Count == 0)
@@ -115,6 +118,7 @@ public class GameManager : MonoBehaviour
         spawningPhase = true;
         difficulty = selectedDifficulty;
         coinDisplayCanvas.SetActive(true);
+        troopSelectionCanvas.SetActive(true);
         difficultySelectionCanvas.SetActive(false);
         currentCoins = (int)(baseCoins * (difficulty == 1 ? 1.2f : (difficulty == 3 ? 0.8f : 1f)));
     }

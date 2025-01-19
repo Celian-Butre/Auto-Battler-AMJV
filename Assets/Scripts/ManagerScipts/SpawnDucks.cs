@@ -1,15 +1,20 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SpawnDucks : MonoBehaviour
 {
     [SerializeField] GameObject armyManagerEntity; 
     [SerializeField] GameObject gameManagerEntity;
     private GameManager gameManagerScript;
-    [SerializeField] GameObject greenDuckPrefab;
-    [SerializeField] GameObject blueDuckPrefab;
-    [SerializeField] GameObject yellowDuckPrefab;
+    [SerializeField] private List<GameObject> duckPrefabs; 
     [SerializeField] GameObject theCamera;
     [SerializeField] GameObject healthCanvas;
+    [SerializeField] GameObject troopSelectionCanvas;
+    //[SerializeField] private List<Sprite> duckImages;
+    [SerializeField] private List<GameObject> troopIcons;
+    [SerializeField] private Sprite chosenCadre;
+    [SerializeField] private Sprite unchosenCadre;
     private LayerMask groundLayerMask;
     private LayerMask duckLayerMask;
     private LayerMask noSpawnLayerMask;
@@ -22,13 +27,15 @@ public class SpawnDucks : MonoBehaviour
     private Vector3 directionToMouse;
     private int whichTroopToSpawn = 0;
     private GameObject currentlySpawningTroop;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         groundLayerMask = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
         duckLayerMask = LayerMask.GetMask("Duck");
-        noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall"); 
-        currentlySpawningTroop = greenDuckPrefab;
+        noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall");
+        currentlySpawningTroop = duckPrefabs[0];
+        ActivateDuckCadre(0);
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
     }
 
@@ -37,20 +44,11 @@ public class SpawnDucks : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
+            deactivateDuckCadre(whichTroopToSpawn);
             whichTroopToSpawn++;
-            whichTroopToSpawn = whichTroopToSpawn % 3;
-            switch (whichTroopToSpawn)
-            {
-                case 0:
-                    currentlySpawningTroop = greenDuckPrefab;
-                    break;
-                case 1:
-                    currentlySpawningTroop = blueDuckPrefab;
-                    break;
-                case 2:
-                    currentlySpawningTroop = yellowDuckPrefab;
-                    break;
-            }
+            whichTroopToSpawn = whichTroopToSpawn % troopIcons.Count;
+            ActivateDuckCadre(whichTroopToSpawn);
+            currentlySpawningTroop = duckPrefabs[whichTroopToSpawn];
         }
 
         if (gameManagerScript.spawningPhase && Input.GetMouseButtonDown(0))
@@ -79,5 +77,15 @@ public class SpawnDucks : MonoBehaviour
                 
             }
         }
+    }
+
+    public void ActivateDuckCadre(int duck)
+    {
+        troopIcons[duck].gameObject.transform.GetChild(1).GetComponent<Image>().sprite = chosenCadre;
+    }
+
+    public void deactivateDuckCadre(int duck)
+    {
+        troopIcons[duck].gameObject.transform.GetChild(1).GetComponent<Image>().sprite = unchosenCadre;
     }
 }
