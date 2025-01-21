@@ -3,23 +3,25 @@ using System.Collections.Generic;
 public class UnlockedLevelsManager : MonoBehaviour
 {
     [SerializeField] private bool mainMenuLevel;
-    static public List<int> unlockedLevels; //0 = locked, 1 = unlocked not beaten, 2 = beaten easy, 3 = beaten medium, 4 = beaten hard
+    static public List<int> unlockedLevels = null; //0 = locked, 1 = unlocked not beaten, 2 = beaten easy, 3 = beaten medium, 4 = beaten hard
     private int howManyLevels = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (mainMenuLevel)
         {
-            unlockedLevels = new List<int>();
-            for (int i = 0; i < howManyLevels; i++)
-            {
-                unlockedLevels.Add(0);
-            }
+            if (unlockedLevels == null){
+                unlockedLevels = new List<int>();
+                for (int i = 0; i < howManyLevels; i++)
+                {
+                    unlockedLevels.Add(0);
+                }
 
-            unlockedLevels[0] = 1;
-            unlockedLevels[1] = 2;
-            unlockedLevels[2] = 3;
-            unlockedLevels[3] = 4;
+                unlockedLevels[0] = 1;
+                unlockedLevels[1] = 2;
+                unlockedLevels[2] = 0;
+                unlockedLevels[3] = 4;
+            }
         }
     }
 

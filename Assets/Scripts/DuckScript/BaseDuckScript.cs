@@ -226,6 +226,7 @@ public class BaseDuckScript : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            Debug.Log("dead");
             die();
         }
     }
@@ -247,9 +248,13 @@ public class BaseDuckScript : MonoBehaviour
     }
     private void die()
     {
-        armyManagerScript.kill(isEnemy, gameObject, hasCrown);
+        Debug.Log("here");
         Destroy(healthBar);
+        Debug.Log("killing");
+        armyManagerScript.kill(isEnemy, gameObject, hasCrown);
+        Debug.Log("and here");
         Destroy(gameObject);
+        Debug.Log("not here");
     }
 
     public int getAttackMode()
