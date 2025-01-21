@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         coinDisplayMesh.text = currentCoins.ToString();
+        /*
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (spawningPhase)
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
                 startFight();
             }
         }
+        */
     }
 
     public void startFight()

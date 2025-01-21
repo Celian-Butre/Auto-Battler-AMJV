@@ -34,6 +34,18 @@ public class SpawnDucks : MonoBehaviour
     [SerializeField] private Sprite hasCrownButton;
     [SerializeField] private Sprite noCrownButton;
     
+    [SerializeField] private Button offenseModeButton;
+    [SerializeField] private Button randomModeButton;
+    [SerializeField] private Button defenseModeButton;
+
+    [SerializeField] private Sprite offenseModeOff;
+    [SerializeField] private Sprite offenseModeOn;
+    [SerializeField] private Sprite randomModeOff;
+    [SerializeField] private Sprite randomModeOn;
+    [SerializeField] private Sprite defenseModeOff;
+    [SerializeField] private Sprite defenseModeOn;
+    private BaseDuckScript selectedTroopScript;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +83,7 @@ public class SpawnDucks : MonoBehaviour
                 if (!hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().getTeam())
                 {
                     selectedTroop = hitDuck.transform.gameObject;
+                    selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
@@ -83,6 +96,7 @@ public class SpawnDucks : MonoBehaviour
                     duckScript.setHealthCanvas(healthCanvas);
                     gameManagerScript.spendCoins(duckScript.cost);
                     selectedTroop = newDuck;
+                    selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
                 }
                 
             }
@@ -94,7 +108,10 @@ public class SpawnDucks : MonoBehaviour
         if (selectedTroop != null)
         {
             troopEditPanel.SetActive(true);
-            crownButton.image.sprite = (selectedTroop.GetComponent<BaseDuckScript>().hasCrown) ? hasCrownButton : noCrownButton;
+            crownButton.image.sprite = (selectedTroopScript.hasCrown) ? hasCrownButton : noCrownButton;
+            offenseModeButton.image.sprite = ((selectedTroopScript.getAttackMode() == 1) ? offenseModeOn : offenseModeOff);
+            randomModeButton.image.sprite = ((selectedTroopScript.getAttackMode() == 2) ? randomModeOn : randomModeOff);
+            defenseModeButton.image.sprite = ((selectedTroopScript.getAttackMode() == 3) ? defenseModeOn : defenseModeOff);
         }
         else
         {
@@ -104,7 +121,7 @@ public class SpawnDucks : MonoBehaviour
     }
     public void despawnSelectedDuck()
     {
-        selectedTroop.GetComponent<BaseDuckScript>().despawn();
+        selectedTroopScript.despawn();
         selectedTroop = null;
     }
     
@@ -130,7 +147,7 @@ public class SpawnDucks : MonoBehaviour
 
     public void toggleCrownFromSelected()
     {
-        if (selectedTroop.GetComponent<BaseDuckScript>().hasCrown)
+        if (selectedTroopScript.hasCrown)
         {
             removeCrownFromSelected();
         }
@@ -138,5 +155,10 @@ public class SpawnDucks : MonoBehaviour
         {
             giveCrownToSelected();
         }
+    }
+    
+    public void setSelectedDuckMode(int mode)
+    {
+        selectedTroopScript.setAttackMode(mode);
     }
 }

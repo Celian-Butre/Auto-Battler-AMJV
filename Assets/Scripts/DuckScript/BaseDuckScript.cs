@@ -208,6 +208,7 @@ public class BaseDuckScript : MonoBehaviour
     void OnMouseOver()
     {
         // Check if the right mouse button is clicked
+        /*
         if (Input.GetMouseButtonDown(1)) // 1 is for the right mouse button
         {
             if (!armyManagerScript.getCrownDuck(isEnemy) && !isEnemy)
@@ -219,6 +220,7 @@ public class BaseDuckScript : MonoBehaviour
                 loseMyCrown();
             }
         }
+        */
     }
 
     public void TakeDamage(float damage)
@@ -256,6 +258,11 @@ public class BaseDuckScript : MonoBehaviour
     public int getAttackMode()
     {
         return (attackMode);
+    }
+
+    public void setAttackMode(int mode)
+    {
+        attackMode = mode;
     }
 
     public bool getTeam()
