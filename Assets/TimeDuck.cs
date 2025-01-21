@@ -71,17 +71,21 @@ public class TimeDuck: MonoBehaviour
         rib = GetComponent<Rigidbody>();
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
-
         foreach (Collider collider in colliders)
         {
+            Debug.Log(collider);
+            
             Rigidbody rb = collider.GetComponent<Rigidbody>();
             if (rb != null & rb != rib & rb.isKinematic==false)
             {
                 rb.isKinematic=true;
+                collider.transform.position=new Vector3(0.0f,2.0f,0.0f);
+                rb.linearVelocity=Vector3.zero;
                 yield return new WaitForSeconds(Cooldown);
                 rb.isKinematic = false;
             }
             
+
         }
 
     }
