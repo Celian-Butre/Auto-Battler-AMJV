@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    
     
     public void endOfLevel(bool thePlayerWon)
     {

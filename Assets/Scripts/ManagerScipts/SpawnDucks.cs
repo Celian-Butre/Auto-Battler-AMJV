@@ -27,10 +27,13 @@ public class SpawnDucks : MonoBehaviour
     private Vector3 directionToMouse;
     private int whichTroopToSpawn = 0;
     private GameObject currentlySpawningTroop;
+    private GameObject selectedTroop;
+    [SerializeField] public GameObject troopEditPanel;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        troopEditPanel.SetActive(false);
         groundLayerMask = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
         duckLayerMask = LayerMask.GetMask("Duck");
         noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall");
@@ -61,7 +64,8 @@ public class SpawnDucks : MonoBehaviour
             {
                 if (!hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().getTeam())
                 {
-                    hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().despawn();
+                    selectedTroop = hitDuck.transform.gameObject;
+                    showTroopEditPanel();
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
@@ -79,6 +83,15 @@ public class SpawnDucks : MonoBehaviour
         }
     }
 
+    public void showTroopEditPanel()
+    {
+        troopEditPanel.SetActive(true);
+    }
+    public void despawnSelectedDuck()
+    {
+        selectedTroop.GetComponent<BaseDuckScript>().despawn();
+    }
+    
     public void ActivateDuckCadre(int duck)
     {
         troopIcons[duck].gameObject.transform.GetChild(1).GetComponent<Image>().sprite = chosenCadre;

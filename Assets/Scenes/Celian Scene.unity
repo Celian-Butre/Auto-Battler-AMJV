@@ -1540,6 +1540,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8974662694775080289, guid: 03c27cf26adb08d4aa9e17c58e0ef99d, type: 3}
   m_PrefabInstance: {fileID: 993084980}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &68712233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+  m_PrefabInstance: {fileID: 7332372606545155106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed16af9570d167a2b8823760227756a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &71288208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3205,6 +3216,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1cb7fb87c52d343a4281718e593287, type: 3}
+--- !u!1 &151713160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7870496998957818242, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+  m_PrefabInstance: {fileID: 7332372606545155106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153209579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30777,11 +30793,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
---- !u!1 &1303387040 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 184321346405724737, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-  m_PrefabInstance: {fileID: 7332372606545155106}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1304957773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49068,13 +49079,13 @@ PrefabInstance:
       value: ManagersAndUI
       objectReference: {fileID: 0}
     - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: lostCanvas
-      value: 
-      objectReference: {fileID: 1303387040}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: healthCanvas
       value: 
       objectReference: {fileID: 1172642305}
+    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: troopEditPanel
+      value: 
+      objectReference: {fileID: 151713160}
     - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: winHighScoreImage
       value: 
@@ -49087,10 +49098,30 @@ PrefabInstance:
       propertyPath: 'levels.Array.data[1]'
       value: Celian Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 3480899709866330684, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 68712233}
+    - target: {fileID: 3480899709866330684, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: despawnSelectedDuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480899709866330684, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnDucks, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480899709866330684, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 554820876}
+    - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: troopEditPanel
+      value: 
+      objectReference: {fileID: 151713160}
     - target: {fileID: 6464595137544830306, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 131.00003
@@ -49112,9 +49143,7 @@ PrefabInstance:
       value: "Ar\xE8ne Perdue"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6228867841029208821, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-    - {fileID: 3964165831836772879, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}

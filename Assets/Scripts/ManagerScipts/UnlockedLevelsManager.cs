@@ -33,26 +33,32 @@ public class UnlockedLevelsManager : MonoBehaviour
 
     public void beatCurrentLevel(int currentLevel, int difficulty) //difficulty = 1,2,3
     {
-        if (!mainMenuLevel)
-        {
-            if (currentLevel != howManyLevels - 1)
+        if (unlockedLevels != null){
+            if (!mainMenuLevel)
             {
-                if (unlockedLevels[currentLevel] == 0)
+                if (currentLevel != howManyLevels - 1)
                 {
-                    unlockedLevels[currentLevel] = 1;
+                    if (unlockedLevels[currentLevel] == 0)
+                    {
+                        unlockedLevels[currentLevel] = 1;
+                    }
                 }
-            }
 
-            if (unlockedLevels[currentLevel - 1] < difficulty + 1)
-            {
-                unlockedLevels[currentLevel - 1] = difficulty + 1;
+                if (unlockedLevels[currentLevel - 1] < difficulty + 1)
+                {
+                    unlockedLevels[currentLevel - 1] = difficulty + 1;
+                }
             }
         }
     }
 
     public int getLevelStatus(int level)
     {
-        return unlockedLevels[level - 1];
+        if (unlockedLevels != null)
+        {
+            return unlockedLevels[level - 1];
+        }
+        return 0;
     }
 
     public List<int> getAllStatuses()
