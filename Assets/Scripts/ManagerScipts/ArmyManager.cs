@@ -6,8 +6,8 @@ public class ArmyManager : MonoBehaviour
 {
     private List<GameObject> enemyArmy = new List<GameObject>();
     private List<GameObject> playerArmy = new List<GameObject>();
-    private GameObject enemyCrownDuck;
-    private GameObject playerCrownDuck;
+    private GameObject enemyCrownDuck = null;
+    private GameObject playerCrownDuck = null;
     [SerializeField] private GameManager gameManagerScript;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -72,5 +72,36 @@ public class ArmyManager : MonoBehaviour
         }
         removeTroopFromArmy(isEnemy, gameObject);
     }
-    
+
+    public void giveCrownDuckTo(bool isEnemy, GameObject duckToCrown)
+    {
+        if ((isEnemy ? enemyCrownDuck : playerCrownDuck) != null)
+        {
+            (isEnemy ? enemyCrownDuck : playerCrownDuck).GetComponent<BaseDuckScript>().loseMyCrown();
+            if (isEnemy)
+            {
+                enemyCrownDuck = null;
+            }
+            else
+            {
+                playerCrownDuck = null;
+            }
+        }
+
+        //becomeCrownDuck will call army manager later and set it locally
+        duckToCrown.GetComponent<BaseDuckScript>().becomeCrownDuck();
+    }
+
+    public void removeCrownDuckFrom(bool isEnemy, GameObject duckToRemoveCrown)
+    {
+        (isEnemy ? enemyCrownDuck : playerCrownDuck).GetComponent<BaseDuckScript>().loseMyCrown();
+        if (isEnemy)
+        {
+            enemyCrownDuck = null;
+        }
+        else
+        {
+            playerCrownDuck = null;
+        }
+    }
 }

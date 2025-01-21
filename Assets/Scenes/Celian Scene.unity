@@ -2875,17 +2875,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
---- !u!114 &138752273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8622204580005421862, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-  m_PrefabInstance: {fileID: 7332372606545155106}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &140270341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8254315445791711713, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
@@ -19908,17 +19897,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
---- !u!114 &850018686 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6988001418946702761, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-  m_PrefabInstance: {fileID: 7332372606545155106}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &852216254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8974662694775080289, guid: 03c27cf26adb08d4aa9e17c58e0ef99d, type: 3}
@@ -49066,37 +49044,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 419895202504873687, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894889001402799277, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -116.99997
+    - target: {fileID: 2643215712318346295, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_Name
+      value: Revendre
       objectReference: {fileID: 0}
     - target: {fileID: 2826323531094626034, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: m_Name
       value: ManagersAndUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: healthCanvas
-      value: 
-      objectReference: {fileID: 1172642305}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: troopEditPanel
-      value: 
-      objectReference: {fileID: 151713160}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: winHighScoreImage
-      value: 
-      objectReference: {fileID: 138752273}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: loseHighScoreImage
-      value: 
-      objectReference: {fileID: 850018686}
-    - target: {fileID: 3070797128664238925, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: 'levels.Array.data[1]'
-      value: Celian Scene
+    - target: {fileID: 2943461069586620712, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_text
+      value: Revendre
       objectReference: {fileID: 0}
     - target: {fileID: 3480899709866330684, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -49119,34 +49077,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 554820876}
     - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: crownButton
+      value: 
+      objectReference: {fileID: 7332372606545155107}
+    - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: noCrownButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ea8ec3a0d3ed93cf823cff2977d4375, type: 3}
+    - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: hasCrownButton
+      value: 
+      objectReference: {fileID: 21300000, guid: ee6da70825625dcad831172656f8f039, type: 3}
+    - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: troopEditPanel
       value: 
       objectReference: {fileID: 151713160}
-    - target: {fileID: 6464595137544830306, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 131.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000715911282307034, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_text
-      value: "Ar\xE8ne Perdue"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7078505788277788588, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 168
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069087440009177539, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -150.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 8234784695597832271, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_Name
-      value: "Ar\xE8ne Perdue"
+    - target: {fileID: 7279620445929590836, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggleCrownFromSelected
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+--- !u!114 &7332372606545155107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7279620445929590836, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
+  m_PrefabInstance: {fileID: 7332372606545155106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

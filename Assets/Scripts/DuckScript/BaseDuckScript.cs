@@ -9,7 +9,7 @@ public class BaseDuckScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private bool isEnemy = true;
-    [SerializeField] bool hasCrown = false;
+    [SerializeField] public bool hasCrown = false;
     [SerializeField] GameObject armyManagerEntity;
     [SerializeField] GameObject gameManagerEntity;
     private ArmyManager armyManagerScript;
@@ -248,13 +248,9 @@ public class BaseDuckScript : MonoBehaviour
     }
     private void die()
     {
-        Debug.Log("here");
         Destroy(healthBar);
-        Debug.Log("killing");
         armyManagerScript.kill(isEnemy, gameObject, hasCrown);
-        Debug.Log("and here");
         Destroy(gameObject);
-        Debug.Log("not here");
     }
 
     public int getAttackMode()

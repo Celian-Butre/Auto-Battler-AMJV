@@ -7,6 +7,7 @@ public class SpawnDucks : MonoBehaviour
     [SerializeField] GameObject armyManagerEntity; 
     [SerializeField] GameObject gameManagerEntity;
     private GameManager gameManagerScript;
+    private ArmyManager armyManagerScript;
     [SerializeField] private List<GameObject> duckPrefabs; 
     [SerializeField] GameObject theCamera;
     [SerializeField] GameObject healthCanvas;
@@ -29,6 +30,9 @@ public class SpawnDucks : MonoBehaviour
     private GameObject currentlySpawningTroop;
     private GameObject selectedTroop;
     [SerializeField] public GameObject troopEditPanel;
+    [SerializeField] private Button crownButton;
+    [SerializeField] private Sprite hasCrownButton;
+    [SerializeField] private Sprite noCrownButton;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,11 +44,13 @@ public class SpawnDucks : MonoBehaviour
         currentlySpawningTroop = duckPrefabs[0];
         ActivateDuckCadre(0);
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
+        armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        choseIfShowTroopEditPanel();
         if (Input.GetKeyDown(KeyCode.C))
         {
             deactivateDuckCadre(whichTroopToSpawn);
@@ -65,7 +71,6 @@ public class SpawnDucks : MonoBehaviour
                 if (!hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().getTeam())
                 {
                     selectedTroop = hitDuck.transform.gameObject;
-                    showTroopEditPanel();
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
@@ -77,19 +82,30 @@ public class SpawnDucks : MonoBehaviour
                     duckScript.setGameManager(gameManagerEntity);
                     duckScript.setHealthCanvas(healthCanvas);
                     gameManagerScript.spendCoins(duckScript.cost);
+                    selectedTroop = newDuck;
                 }
                 
             }
         }
     }
 
-    public void showTroopEditPanel()
+    public void choseIfShowTroopEditPanel()
     {
-        troopEditPanel.SetActive(true);
+        if (selectedTroop != null)
+        {
+            troopEditPanel.SetActive(true);
+            crownButton.image.sprite = (selectedTroop.GetComponent<BaseDuckScript>().hasCrown) ? hasCrownButton : noCrownButton;
+        }
+        else
+        {
+            troopEditPanel.SetActive(false);
+        }
+        
     }
     public void despawnSelectedDuck()
     {
         selectedTroop.GetComponent<BaseDuckScript>().despawn();
+        selectedTroop = null;
     }
     
     public void ActivateDuckCadre(int duck)
@@ -100,5 +116,27 @@ public class SpawnDucks : MonoBehaviour
     public void deactivateDuckCadre(int duck)
     {
         troopIcons[duck].gameObject.transform.GetChild(1).GetComponent<Image>().sprite = unchosenCadre;
+    }
+
+    public void giveCrownToSelected()
+    {
+        armyManagerScript.giveCrownDuckTo(false, selectedTroop);
+    }
+
+    public void removeCrownFromSelected()
+    {
+        armyManagerScript.removeCrownDuckFrom(false, selectedTroop);
+    }
+
+    public void toggleCrownFromSelected()
+    {
+        if (selectedTroop.GetComponent<BaseDuckScript>().hasCrown)
+        {
+            removeCrownFromSelected();
+        }
+        else
+        {
+            giveCrownToSelected();
+        }
     }
 }
