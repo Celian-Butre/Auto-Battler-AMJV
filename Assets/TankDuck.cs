@@ -7,6 +7,7 @@ public class TankDuck : MonoBehaviour
     [SerializeField] private GameObject Balle;
     [SerializeField] private float Cooldown;
     [SerializeField] private float ForceTir;
+    private bool Shoot = true;
     private Rigidbody rib;
     float RotSpeed = 300.0f;
 
@@ -45,18 +46,23 @@ public class TankDuck : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("Attaque");
-            StartCoroutine(Tir());
+            if(Shoot)
+            {
+                Debug.Log("Attaque");
+                StartCoroutine(Tir());
+            }
         }
 
     }
 
     IEnumerator Tir()
     {
-        GameObject BULLET = Instantiate(Balle, Bout.transform.position,transform.rotation);
+        Shoot = false;
+        GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
         yield return new WaitForSeconds(Cooldown);
+        Shoot = true;
     }
 }
 
