@@ -45,6 +45,7 @@ public class SpawnDucks : MonoBehaviour
     [SerializeField] private Sprite defenseModeOff;
     [SerializeField] private Sprite defenseModeOn;
     private BaseDuckScript selectedTroopScript;
+    [SerializeField] private PastilleManager pastilleManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,8 +83,7 @@ public class SpawnDucks : MonoBehaviour
             {
                 if (!hitDuck.transform.gameObject.GetComponent<BaseDuckScript>().getTeam())
                 {
-                    selectedTroop = hitDuck.transform.gameObject;
-                    selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
+                    setSelectedTroop(hitDuck.transform.gameObject);
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
@@ -95,8 +95,7 @@ public class SpawnDucks : MonoBehaviour
                     duckScript.setGameManager(gameManagerEntity);
                     duckScript.setHealthCanvas(healthCanvas);
                     gameManagerScript.spendCoins(duckScript.cost);
-                    selectedTroop = newDuck;
-                    selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
+                    setSelectedTroop(newDuck);
                 }
                 
             }
@@ -160,5 +159,16 @@ public class SpawnDucks : MonoBehaviour
     public void setSelectedDuckMode(int mode)
     {
         selectedTroopScript.setAttackMode(mode);
+    }
+
+    public void setSelectedTroop(GameObject troop)
+    {
+        if (selectedTroop != null)
+        {
+            pastilleManager.setPlayerPastille(selectedTroop);
+        }
+        selectedTroop = troop;
+        selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
+        pastilleManager.setSelectedPastille(troop);
     }
 }
