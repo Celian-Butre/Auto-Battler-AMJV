@@ -24060,55 +24060,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0698603
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.8918866
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.0193112
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69193095
+      value: 0.97992474
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.69193095
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.14571057
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.14571057
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -23.784
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.19936797
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255043937708058299, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062789862589266945, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
       propertyPath: m_Name
-      value: Little Ducky Sniper
+      value: SniperDuck
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3fe4efcddb5878949acceb7f7b06a10f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b25f6c3774b42934c85c52fda4aa4b5c, type: 3}
 --- !u!4 &1038928088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8254315445791711713, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}

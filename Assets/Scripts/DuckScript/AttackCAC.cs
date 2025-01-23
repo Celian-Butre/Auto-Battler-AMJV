@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System;
+
 public class AttackCAC : MonoBehaviour
 {
     [SerializeField] private float range;
@@ -11,6 +13,8 @@ public class AttackCAC : MonoBehaviour
     
     
     private bool canAttack = true;
+
+    static public event Action ATTACK;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -87,5 +91,6 @@ public class AttackCAC : MonoBehaviour
     {
         StartCoroutine(coolDown());
         attackTarget.GetComponent<BaseDuckScript>().TakeDamage(damage);
+        ATTACK.Invoke();
     } 
 }

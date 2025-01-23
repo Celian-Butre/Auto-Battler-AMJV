@@ -1,48 +1,36 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class SniperDuck : MonoBehaviour
 {
     [SerializeField] private GameObject Bout;
     [SerializeField] private GameObject Balle;
-    [SerializeField] private float Cooldown;
+    private float Cooldown;
     [SerializeField] private float ForceTir;
     private Rigidbody rib;
     private bool Shoot = true;
     float RotSpeed = 300.0f;
+    Vector3 STAY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        AttackCAC.ATTACK += Attack;
+        STAY=transform.position;
     }
 
     // Update is called once per frame
+
+    void Attack()
+    {
+        Debug.Log("Attaque");
+        StartCoroutine(Tir());
+    }
     void Update()
     {
-        //à supprimer
-        float SPEED = 3.0f;
-        float ROT = 100.0f;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("avancer");
-            transform.Translate(Vector3.forward * Time.deltaTime * SPEED);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("reculer");
-            transform.Translate(-Vector3.forward * Time.deltaTime * SPEED);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
+        transform.position = STAY;
+        rib.linearVelocity = Vector3.zero;
         if (Input.GetKeyDown(KeyCode.R))
         {
 
@@ -76,5 +64,10 @@ public class SniperDuck : MonoBehaviour
         Cooldown = 1.0f;
         yield return new WaitForSeconds(5.0f);
         Cooldown = BackupCooldown;
+    }
+
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
     }
 }
