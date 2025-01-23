@@ -88,7 +88,7 @@ public class SpawnDucks : MonoBehaviour
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
                 if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
                 { 
-                    GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y / 2f,0f)), Quaternion.identity);
+                    GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y * 0.7f,0f)), Quaternion.identity);
                     BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
                     duckScript.setTeam(false);
                     duckScript.setArmyManager(armyManagerEntity);

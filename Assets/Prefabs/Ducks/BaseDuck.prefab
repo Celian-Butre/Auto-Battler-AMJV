@@ -153,7 +153,7 @@ MonoBehaviour:
   hasCrown: 0
   armyManagerEntity: {fileID: 0}
   gameManagerEntity: {fileID: 0}
-  crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
+  crownPrefab: {fileID: 5439261377235293692, guid: dd14b265dc29f8b25ac95057b3ea778b, type: 3}
   attackMode: 1
   baseHealth: 0
   healthBarPrefab: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
