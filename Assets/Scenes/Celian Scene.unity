@@ -49052,40 +49052,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManagersAndUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3370465446509621327, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370465446509621327, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370465446509621327, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 472
-      objectReference: {fileID: 0}
     - target: {fileID: 4166580742000490934, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 554820876}
-    - target: {fileID: 4197633978685188295, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_Name
-      value: ennemies en vie
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659265617644080689, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_text
-      value: 'Ennemies en vie : 0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659265617644080689, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_margin.w
-      value: -78.27258
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659265617644080689, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
-      propertyPath: m_margin.z
-      value: 50.43799
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3292201392876883868, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537d364961daaacd6a9e38171fd94f08, type: 3}

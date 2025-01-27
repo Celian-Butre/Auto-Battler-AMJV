@@ -91,8 +91,6 @@ public class BaseDuckScript : MonoBehaviour
         if (healthBar == null)
         {
             healthBar = Instantiate(healthBarPrefab, healthCanvas.transform);
-            //healthBarRect = healthBar.GetComponent<RectTransform>();
-            //healthBarRect.sizeDelta = new Vector2(Screen.width/100f, Screen.width/100f*88/408);
             healthBar.transform.localScale = new Vector2(0.25f, 0.25f);
             healthBarInside = healthBar.transform.GetChild(1).gameObject;
             healthBarGradient = healthBarInside.GetComponent<Image>();
@@ -102,8 +100,8 @@ public class BaseDuckScript : MonoBehaviour
 
         if (healthBar != null) //safety measure 
         {
-            Vector2 screenPoint = Camera.main.WorldToScreenPoint(transform.position);// + new Vector3(0f, 0f, DuckHeight));
-            healthBar.transform.position = screenPoint;// + new Vector2(0f, DuckHeight*20);
+            Vector2 screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+            healthBar.transform.position = screenPoint + new Vector2(0f, DuckHeight*80*Screen.width/3840);
             healthBarGradient.fillAmount = health / baseHealth;
             healthBarGradient.color = Color.Lerp(Color.red, Color.green, health/baseHealth);
             

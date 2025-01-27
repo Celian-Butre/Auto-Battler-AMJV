@@ -17,10 +17,10 @@ public class UnlockedLevelsManager : MonoBehaviour
                     unlockedLevels.Add(0);
                 }
 
-                unlockedLevels[0] = 1;
-                unlockedLevels[1] = 2;
-                unlockedLevels[2] = 0;
-                unlockedLevels[3] = 4;
+                unlockedLevels[0] = 4;
+                unlockedLevels[1] = 3;
+                unlockedLevels[2] = 2;
+                unlockedLevels[3] = 1;
             }
         }
     }

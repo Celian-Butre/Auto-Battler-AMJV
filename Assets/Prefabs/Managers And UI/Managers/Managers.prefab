@@ -46,11 +46,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armyManagerEntity: {fileID: 1539837472354018575}
   gameManagerEntity: {fileID: 5351396182450609706}
-  greenDuckPrefab: {fileID: 4964552560111410219, guid: e1c94fe0d464f1e088ef69b05b3abb32, type: 3}
-  blueDuckPrefab: {fileID: 388890588931946135, guid: e686a2c971402914d8cd9b67fd42ba24, type: 3}
-  yellowDuckPrefab: {fileID: 5700511204633676644, guid: e1bcf2ede456543759a948f9d6fb6f6d, type: 3}
+  duckPrefabs: []
   theCamera: {fileID: 0}
   healthCanvas: {fileID: 0}
+  troopSelectionCanvas: {fileID: 0}
+  troopIcons: []
+  chosenCadre: {fileID: 0}
+  unchosenCadre: {fileID: 0}
+  troopEditPanel: {fileID: 0}
+  crownButton: {fileID: 0}
+  hasCrownButton: {fileID: 0}
+  noCrownButton: {fileID: 0}
+  offenseModeButton: {fileID: 0}
+  randomModeButton: {fileID: 0}
+  defenseModeButton: {fileID: 0}
+  offenseModeOff: {fileID: 0}
+  offenseModeOn: {fileID: 0}
+  randomModeOff: {fileID: 0}
+  randomModeOn: {fileID: 0}
+  defenseModeOff: {fileID: 0}
+  defenseModeOn: {fileID: 0}
+  pastilleManager: {fileID: 0}
 --- !u!1 &1539837472354018575
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,12 +200,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b44c52b4de179af282b4cf5f073b748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionPhase: 1
+  difficultySelectionPhase: 1
+  spawningPhase: 0
   combatPhase: 0
+  endOfGamePhase: 0
   foundWinner: 0
   playerWon: 0
+  currentLevel: 0
+  difficulty: 0
   armyManager: {fileID: 8925766905164156712}
   unlockedLevelsManager: {fileID: 8048570460633061697}
+  baseCoins: 0
+  currentCoins: 0
+  coinDisplay: {fileID: 0}
+  healthCanvas: {fileID: 0}
+  wonCanvas: {fileID: 0}
+  lostCanvas: {fileID: 0}
+  coinDisplayCanvas: {fileID: 0}
+  difficultySelectionCanvas: {fileID: 0}
+  troopSelectionCanvas: {fileID: 0}
+  highScoreImage: {fileID: 0}
+  winHighScoreImage: {fileID: 0}
+  loseHighScoreImage: {fileID: 0}
+  bronzeSprite: {fileID: 0}
+  silverSprite: {fileID: 0}
+  goldSprite: {fileID: 0}
+  notBeatenSprite: {fileID: 0}
+  levels: []
 --- !u!1 &7084469440818071535
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,11 +256,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4473475774394959870}
+  - {fileID: 2202945969393503076}
   - {fileID: 6719587989791917423}
   - {fileID: 1196266814689543010}
   - {fileID: 1444816915386806410}
-  - {fileID: 2202945969393503076}
-  - {fileID: 4473475774394959870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2428505028115901372
