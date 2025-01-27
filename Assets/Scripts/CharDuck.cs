@@ -68,12 +68,14 @@ public class CharDuck : MonoBehaviour
     IEnumerator Lasers()
     {
         Shoot = false;
+        GameObject Target = GetComponent<AttackCAC>().GetTarget();
+        Vector3 Destination = Vector3.Normalize(Target.transform.position-transform.position);
         GameObject LazGauche = Instantiate(Lazer, Gauche.transform.position, Gauche.transform.rotation);
         Rigidbody rbg = LazGauche.GetComponent<Rigidbody>();
-        rbg.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
+        rbg.AddForce(Destination * ForceTir, ForceMode.Impulse);
         GameObject LazDroite = Instantiate(Lazer, Droit.transform.position, Droit.transform.rotation);
         Rigidbody rbd = LazDroite.GetComponent<Rigidbody>();
-        rbd.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
+        rbd.AddForce(Destination * ForceTir, ForceMode.Impulse);
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;
     }
@@ -81,10 +83,12 @@ public class CharDuck : MonoBehaviour
     IEnumerator Special()
     {
         Shoot = false;
-        Vector3 Salse = new Vector3(0, -1, 0);
+        GameObject Target = GetComponent<AttackCAC>().GetTarget();
+        Vector3 Destination = Vector3.Normalize(Target.transform.position - transform.position);
+        //Vector3 Salse = new Vector3(0, -1, 0);
         GameObject Laz = Instantiate(LazerBoom, Tete.transform.position, Tete.transform.rotation);
         Rigidbody rb = Laz.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
+        rb.AddForce(Destination * ForceTir, ForceMode.Impulse);
         //rb.AddForce(Salse * ForceTir, ForceMode.Impulse);
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;

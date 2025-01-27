@@ -30,6 +30,7 @@ public class SniperDuck : MonoBehaviour
     void Update()
     {
         transform.position = STAY;
+        rib = GetComponent<Rigidbody>();
         rib.linearVelocity = Vector3.zero;
         if (Input.GetKeyDown(KeyCode.R))
         {

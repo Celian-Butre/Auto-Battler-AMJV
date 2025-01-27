@@ -10,8 +10,10 @@ public class AttackCAC : MonoBehaviour
     private BaseDuckScript baseDuckScript;
     private LayerMask duckLayer; // Layer for ducks
     private LayerMask wallLayer;
-    
-    
+    private GameObject targetToAttack;
+
+
+
     private bool canAttack = true;
 
     static public event Action ATTACK;
@@ -38,7 +40,7 @@ public class AttackCAC : MonoBehaviour
             if (canAttack)
             {
                 Collider[] hits = Physics.OverlapSphere(transform.position, range, duckLayer);
-                GameObject targetToAttack = null;
+                //GameObject targetToAttack = null;
                 float distanceToChosenTarget = range;
                 bool targetFound = false;
                 foreach (Collider hit in hits)
@@ -87,10 +89,17 @@ public class AttackCAC : MonoBehaviour
         }
     }
 
-    private void Attack(GameObject attackTarget)
+    private void Attack(GameObject targetToAttack)
     {
         StartCoroutine(coolDown());
-        attackTarget.GetComponent<BaseDuckScript>().TakeDamage(damage);
+        targetToAttack.GetComponent<BaseDuckScript>().TakeDamage(damage);
+
         ATTACK.Invoke();
     } 
+
+    public GameObject GetTarget()
+    {
+        return (targetToAttack);
+    }
+
 }
