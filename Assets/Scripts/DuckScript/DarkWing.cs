@@ -18,6 +18,7 @@ public class DarkWing : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AttackCAC>().changeCACouDistance(false);
         AttackCAC.ATTACK += Attack;
         BladeGun = true;
     }
@@ -62,6 +63,7 @@ public class DarkWing : MonoBehaviour
         {
             Sword.SetActive(false);
             Gun.SetActive(true);
+            GetComponent<AttackCAC>().changeCACouDistance(false);
 
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -78,6 +80,7 @@ public class DarkWing : MonoBehaviour
         {
             Sword.SetActive(true);
             Gun.SetActive(false);
+            GetComponent<AttackCAC>().changeCACouDistance(true);
 
             if (Input.GetKeyDown(KeyCode.R))
             {

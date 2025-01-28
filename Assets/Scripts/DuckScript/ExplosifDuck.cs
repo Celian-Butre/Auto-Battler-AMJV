@@ -15,7 +15,9 @@ public class ExplosifDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AttackCAC>().changeCACouDistance(true);
         Speed = GetComponent<BaseDuckScript>().getSpeed();
+        AttackCAC.ATTACK += Attack;
     }
 
     void Attack()
@@ -75,8 +77,13 @@ public class ExplosifDuck : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardModifier, ForceMode.Impulse);
             }
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
+    }
 
 }

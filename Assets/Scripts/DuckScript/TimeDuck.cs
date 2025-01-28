@@ -6,6 +6,7 @@ public class TimeDuck: MonoBehaviour
 
     private Rigidbody rib;
     float Speed;
+    private float cooldown = 5.0f;
     [SerializeField] float explosionRadius;
     [SerializeField] float RangeExplosion;
    
@@ -13,12 +14,14 @@ public class TimeDuck: MonoBehaviour
     void Start()
     {
         Speed = GetComponent<BaseDuckScript>().getSpeed();
+        GetComponent<AttackCAC>().changeCACouDistance(true);
+        AttackCAC.ATTACK += Attack;
     }
 
     void Attack()
     {
-        Debug.Log("Attaque");
-        Explode();
+        Debug.Log("Attaque TIME");
+        StartCoroutine(Explode());
     }
 
     // Update is called once per frame
@@ -65,23 +68,31 @@ public class TimeDuck: MonoBehaviour
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
         foreach (Collider collider in colliders)
-        {
-            Debug.Log(collider);
-            
+        {   
             Rigidbody rb = collider.GetComponent<Rigidbody>();
-            if (rb != null & rb != rib & rb.isKinematic==false)
+            if (LayerMask.LayerToName(collider.gameObject.layer)=="duck")
             {
-                rb.isKinematic=true;
-                collider.GetComponent<AttackCAC>().enabled = false;
-                rb.linearVelocity=Vector3.zero;
-                yield return null;
-                rb.isKinematic = false;
-                collider.GetComponent<AttackCAC>().enabled = true;
+                if (rb != null & rb != rib)
+                {
+                    rb.isKinematic = true;
+                    collider.GetComponent<AttackCAC>().enabled = false;
+                    rb.linearVelocity = Vector3.zero;
+                    yield return new WaitForSeconds(cooldown);
+                    rb.isKinematic = false;
+                    collider.GetComponent<AttackCAC>().enabled = true;
+                }
             }
+
             
 
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
 
+    }
+
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
     }
 }

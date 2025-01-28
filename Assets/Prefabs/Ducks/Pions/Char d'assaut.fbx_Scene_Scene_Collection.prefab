@@ -434,7 +434,7 @@ MonoBehaviour:
   Gauche: {fileID: 939438881463163888}
   Droit: {fileID: 5574700844648267873}
   Tete: {fileID: 1991880796419479962}
-  ForceTir: 3
+  ForceTir: 30
 --- !u!114 &4060216931809688082
 MonoBehaviour:
   m_ObjectHideFlags: 0

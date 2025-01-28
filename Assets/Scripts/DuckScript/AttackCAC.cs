@@ -11,6 +11,7 @@ public class AttackCAC : MonoBehaviour
     private LayerMask duckLayer; // Layer for ducks
     private LayerMask wallLayer;
     private GameObject targetToAttack;
+    private bool CACouDistance; //True for CAC, False for Distance
 
 
 
@@ -20,14 +21,21 @@ public class AttackCAC : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CACouDistance = false;
         baseDuckScript = gameObject.GetComponent<BaseDuckScript>();
         duckLayer = LayerMask.GetMask("Duck");
         wallLayer = LayerMask.GetMask("Wall");
     }
+
+    public bool changeCACouDistance(bool whichOne)
+    {
+        CACouDistance=whichOne;
+        return(CACouDistance);
+    }
     
     IEnumerator coolDown()
     {
-        canAttack = false;
+        canAttack = true;
         yield return new WaitForSeconds(cooldown);
         canAttack = true;
     }
@@ -81,25 +89,42 @@ public class AttackCAC : MonoBehaviour
 
                 }
 
-                if (targetFound)
+                if (targetFound & CACouDistance)
                 {
-                    Attack(targetToAttack);
+                    AttackC(targetToAttack);
+                }
+                else
+                {
+                    AttackD();
                 }
             }
         }
     }
 
-    private void Attack(GameObject targetToAttack)
+    private void AttackC(GameObject targetToAttack)
     {
         StartCoroutine(coolDown());
         targetToAttack.GetComponent<BaseDuckScript>().TakeDamage(damage);
+        Debug.Log("Corps à corps");
+        ATTACK.Invoke();
+    }
+
+    private void AttackD()
+    {
+        Debug.Log("DISTANCE");
+        StartCoroutine(coolDown());
 
         ATTACK.Invoke();
-    } 
+    }
 
     public GameObject GetTarget()
     {
         return (targetToAttack);
+    }
+
+    public float GetDamage()
+    {
+        return (damage);
     }
 
 }

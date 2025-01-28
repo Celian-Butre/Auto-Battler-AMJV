@@ -14,6 +14,7 @@ public class SniperDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AttackCAC>().changeCACouDistance(false);
         AttackCAC.ATTACK += Attack;
         STAY=transform.position;
     }
@@ -56,6 +57,8 @@ public class SniperDuck : MonoBehaviour
     {
         Shoot = false;
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
+        BULLET.GetComponent<Lazer>().parent = this.gameObject;
+        BULLET.GetComponent<Lazer>().damage = GetComponent<AttackCAC>().GetDamage();
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
         yield return null;

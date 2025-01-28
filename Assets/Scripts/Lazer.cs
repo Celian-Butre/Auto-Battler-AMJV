@@ -3,7 +3,8 @@ using UnityEngine;
 public class Lazer : MonoBehaviour
 {
     private float i = 0.0f;
-    private float damage;
+    public float damage;
+    public GameObject parent; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,7 @@ public class Lazer : MonoBehaviour
             {
             if (LayerMask.LayerToName(other.gameObject.layer) == "Duck")
             {
-                //other.gameObject.GetComponent<BaseDuckScript>().TakeDamage(damage); TODO pour éviter le rayon de la mort
+                other.gameObject.GetComponent<BaseDuckScript>().TakeDamage(damage);
             }
                 Destroy(gameObject);
             }
