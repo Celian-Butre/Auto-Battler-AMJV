@@ -21,6 +21,7 @@ public class BaseDuckScript : MonoBehaviour
     Vector3 destination;
     private float health;
     [SerializeField] private float baseHealth;
+    [SerializeField] private float armor;
     [SerializeField] public GameObject healthBarPrefab;
     [SerializeField] private GameObject healthCanvas;
     private RectTransform healthCanvasRect;
@@ -230,7 +231,8 @@ public class BaseDuckScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        float damageReallyTaken = Mathf.Max(0, damage - armor);
+        health -= damageReallyTaken;
         if (health <= 0)
         {
             Debug.Log("dead");
