@@ -60,6 +60,9 @@ public class SpawnDucks : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
+        armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
         troopEditPanel.SetActive(false);
         groundLayerMask = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
         duckLayerMask = LayerMask.GetMask("Duck");
@@ -67,8 +70,6 @@ public class SpawnDucks : MonoBehaviour
         currentlySpawningTroop = duckPrefabs[0];
         ActivateDuckCadre(0);
         updateTroopStats();
-        gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
-        armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
     }
 
     // Update is called once per frame
@@ -84,7 +85,6 @@ public class SpawnDucks : MonoBehaviour
             currentlySpawningTroop = duckPrefabs[whichTroopToSpawn];
             updateTroopStats();
         }
-
         if (gameManagerScript.spawningPhase && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
