@@ -113,57 +113,60 @@ public class GameManager : MonoBehaviour
     
     public void endOfLevel(bool thePlayerWon)
     {
-        combatPhase = false;
-        endOfGamePhase = true;
-        foundWinner = true;
-        playerWon = thePlayerWon;
-        coinDisplayCanvas.SetActive(false);
-        healthCanvas.SetActive(false);
-        if (playerWon)
+        if (!foundWinner)
         {
-            unlockedLevelsManager.beatCurrentLevel(currentLevel, difficulty);
-            wonCanvas.SetActive(true);
-            int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
-            switch (highScore)
+            combatPhase = false;
+            endOfGamePhase = true;
+            foundWinner = true;
+            playerWon = thePlayerWon;
+            coinDisplayCanvas.SetActive(false);
+            healthCanvas.SetActive(false);
+            if (playerWon)
             {
-                case 0:
-                    winHighScoreImage.texture = notBeatenSprite;
-                    break;
-                case 1:
-                    winHighScoreImage.texture = notBeatenSprite;
-                    break;
-                case 2:
-                    winHighScoreImage.texture = bronzeSprite;
-                    break;
-                case 3:
-                    winHighScoreImage.texture = silverSprite;
-                    break;
-                case 4:
-                    winHighScoreImage.texture = goldSprite;
-                    break;
+                unlockedLevelsManager.beatCurrentLevel(currentLevel, difficulty);
+                wonCanvas.SetActive(true);
+                int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
+                switch (highScore)
+                {
+                    case 0:
+                        winHighScoreImage.texture = notBeatenSprite;
+                        break;
+                    case 1:
+                        winHighScoreImage.texture = notBeatenSprite;
+                        break;
+                    case 2:
+                        winHighScoreImage.texture = bronzeSprite;
+                        break;
+                    case 3:
+                        winHighScoreImage.texture = silverSprite;
+                        break;
+                    case 4:
+                        winHighScoreImage.texture = goldSprite;
+                        break;
+                }
             }
-        }
-        else
-        {
-            lostCanvas.SetActive(true);
-            int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
-            switch (highScore)
+            else
             {
-                case 0:
-                    loseHighScoreImage.texture = notBeatenSprite;
-                    break;
-                case 1:
-                    loseHighScoreImage.texture = notBeatenSprite;
-                    break;
-                case 2:
-                    loseHighScoreImage.texture = bronzeSprite;
-                    break;
-                case 3:
-                    loseHighScoreImage.texture = silverSprite;
-                    break;
-                case 4:
-                    loseHighScoreImage.texture = goldSprite;
-                    break;
+                lostCanvas.SetActive(true);
+                int highScore = unlockedLevelsManager.getLevelStatus(currentLevel);
+                switch (highScore)
+                {
+                    case 0:
+                        loseHighScoreImage.texture = notBeatenSprite;
+                        break;
+                    case 1:
+                        loseHighScoreImage.texture = notBeatenSprite;
+                        break;
+                    case 2:
+                        loseHighScoreImage.texture = bronzeSprite;
+                        break;
+                    case 3:
+                        loseHighScoreImage.texture = silverSprite;
+                        break;
+                    case 4:
+                        loseHighScoreImage.texture = goldSprite;
+                        break;
+                }
             }
         }
     }
