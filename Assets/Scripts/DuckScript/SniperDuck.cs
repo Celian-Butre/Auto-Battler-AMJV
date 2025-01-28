@@ -33,7 +33,7 @@ public class SniperDuck : MonoBehaviour
     {
         transform.position = STAY;
         rib = GetComponent<Rigidbody>();
-        rib.linearVelocity = Vector3.zero;
+        //rib.linearVelocity = Vector3.zero;
         
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -51,7 +51,7 @@ public class SniperDuck : MonoBehaviour
             StartCoroutine(Special());
         }
     }
-    //Tir. La variable Shoot est le garde-fou pour éviter de tirer sans prendre en compte le cooldown
+    //Tir. La variable Shoot est le garde-fou pour ï¿½viter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
     {
         Shoot = false;
@@ -69,7 +69,7 @@ public class SniperDuck : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         Cooldown = BackupCooldown;
     }
-    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    //On tue le signal pour ï¿½viter tout problï¿½mes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;

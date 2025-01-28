@@ -51,7 +51,7 @@ public class BaseDuckScript : MonoBehaviour
             becomeCrownDuck();
         }
         
-        DuckHeight = GetComponent<Renderer>().bounds.size.y;
+        DuckHeight = transform.Find("TigeUI").GetComponent<Renderer>().bounds.size.y;
         allGroundLayers = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
     }
 

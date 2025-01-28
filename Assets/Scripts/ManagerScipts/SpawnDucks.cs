@@ -66,6 +66,7 @@ public class SpawnDucks : MonoBehaviour
         noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall");
         currentlySpawningTroop = duckPrefabs[0];
         ActivateDuckCadre(0);
+        updateTroopStats();
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
         armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
     }
@@ -97,9 +98,9 @@ public class SpawnDucks : MonoBehaviour
                     setSelectedTroop(hitDuck.transform.gameObject);
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
-                if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost < gameManagerScript.currentCoins)
+                if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost <= gameManagerScript.currentCoins)
                 { 
-                    GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.GetComponent<Renderer>().bounds.size.y * 0.8f,0f)), Quaternion.identity);
+                    GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.transform.Find("TigeUI").GetComponent<Renderer>().bounds.size.y * 0.8f,0f)), Quaternion.identity);
                     BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
                     duckScript.setTeam(false);
                     duckScript.setArmyManager(armyManagerEntity);

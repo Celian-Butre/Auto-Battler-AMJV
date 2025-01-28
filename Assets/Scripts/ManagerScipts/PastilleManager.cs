@@ -31,6 +31,7 @@ public class PastilleManager : MonoBehaviour
 
         if (!removedPastilles && !gameManagerScript.spawningPhase)
         {
+            Debug.Log("removing");
             removedPastilles = true;
             removeEnemyPastilles();
             removeTeamPastilles();

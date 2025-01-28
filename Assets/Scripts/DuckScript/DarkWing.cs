@@ -46,14 +46,17 @@ public class DarkWing : MonoBehaviour
     {
         //Choose which weapon to use against enemy
         Target=GetComponent<AttackCAC>().GetTarget();
-        Vector3 RangeWeapon = Target.transform.position-transform.position;
-        if(RangeWeapon.magnitude > Range) 
-        { 
-            BladeGun=false;
-        }
-        else 
+        if (Target != null)
         {
-            BladeGun = true;
+            Vector3 RangeWeapon = Target.transform.position - transform.position;
+            if (RangeWeapon.magnitude > Range)
+            {
+                BladeGun = false;
+            }
+            else
+            {
+                BladeGun = true;
+            }
         }
 
         if (!BladeGun) //Gun
@@ -103,7 +106,7 @@ public class DarkWing : MonoBehaviour
             StartCoroutine(Special());
         }
     }
-    //Tir. La variable Shoot est le garde-fou pour éviter de tirer sans prendre en compte le cooldown
+    //Tir. La variable Shoot est le garde-fou pour ï¿½viter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
     {
         Shoot = false;
@@ -125,8 +128,8 @@ public class DarkWing : MonoBehaviour
     {
 
         bool IsFinish = true;
-        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'à ce que les conditions match
-        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degré, l'autre s'active après une demie rotation;
+        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'ï¿½ ce que les conditions match
+        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degrï¿½, l'autre s'active aprï¿½s une demie rotation;
         while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x) > 0.05f)
         {
             //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
@@ -139,7 +142,7 @@ public class DarkWing : MonoBehaviour
         }
         Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
     }
-    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    //On tue le signal pour ï¿½viter tout problï¿½mes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;
