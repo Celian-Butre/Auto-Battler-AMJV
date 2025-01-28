@@ -191,7 +191,7 @@ public class BaseDuckScript : MonoBehaviour
     {
         hasCrown = true;
         armyManagerScript.setCrownDuck(isEnemy, gameObject);
-        crown = Instantiate(crownPrefab, this.transform);
+        crown = Instantiate(crownPrefab, this.transform.Find("crownSpawner"));
     }
     
     public void loseMyCrown()

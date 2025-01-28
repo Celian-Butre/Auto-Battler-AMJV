@@ -19262,6 +19262,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -35210,6 +35214,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -39807,6 +39815,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594439276108085881, guid: 4cea648f040ac754c997899eb09ebfcb, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -40808,6 +40820,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03c27cf26adb08d4aa9e17c58e0ef99d, type: 3}
+--- !u!1001 &1743409766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4060216931809688082, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: hasCrown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060216931809688082, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060216931809688082, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: armyManagerEntity
+      value: 
+      objectReference: {fileID: 117045548}
+    - target: {fileID: 4060216931809688082, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: gameManagerEntity
+      value: 
+      objectReference: {fileID: 1220291356}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.590263
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.312925
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025882693135927149, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689265699669073367, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
+      propertyPath: m_Name
+      value: Char d'assaut.fbx_Scene_Scene_Collection
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 163a496a3825bf04ca1a4e53cc93ce8e, type: 3}
 --- !u!4 &1743436929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8254315445791711713, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
@@ -41401,6 +41486,10 @@ PrefabInstance:
     - target: {fileID: 9064938243890791681, guid: 61c35246df725e449bd28ab865c22a52, type: 3}
       propertyPath: hasCrown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064938243890791681, guid: 61c35246df725e449bd28ab865c22a52, type: 3}
+      propertyPath: attackMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9064938243890791681, guid: 61c35246df725e449bd28ab865c22a52, type: 3}
       propertyPath: armyManagerEntity
@@ -47566,6 +47655,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 757922508236310592, guid: 8e33cbd2a1eddbe4c990bb58aa2e953a, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 757922508236310592, guid: 8e33cbd2a1eddbe4c990bb58aa2e953a, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -48470,6 +48563,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3180502994822879386, guid: 80a388e599eafb048876e2c9d0bc925d, type: 3}
+      propertyPath: attackMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180502994822879386, guid: 80a388e599eafb048876e2c9d0bc925d, type: 3}
       propertyPath: armyManagerEntity
       value: 
       objectReference: {fileID: 117045548}
@@ -49349,3 +49446,4 @@ SceneRoots:
   - {fileID: 1691856717}
   - {fileID: 2121695608}
   - {fileID: 1770012666}
+  - {fileID: 1743409766}
