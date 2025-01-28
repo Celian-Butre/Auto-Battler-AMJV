@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using NUnit.Framework.Constraints;
-using Unity.VisualScripting;
 
 public class BaseDuckScript : MonoBehaviour
 {
@@ -26,7 +24,7 @@ public class BaseDuckScript : MonoBehaviour
     [SerializeField] private GameObject healthCanvas;
     private RectTransform healthCanvasRect;
     private GameObject healthBar = null;
-    private RectTransform healthBarRect = null;
+    //private RectTransform healthBarRect = null;
     private float DuckHeight;
     private GameObject healthBarInside;
     private Image healthBarGradient;
@@ -276,6 +274,11 @@ public class BaseDuckScript : MonoBehaviour
     public bool getTeam()
     {
         return (isEnemy);
+    }
+
+    public float getSpeed()
+    {
+        return (baseSpeed);
     }
 
     public void setHealthCanvas(GameObject healthCanvas)

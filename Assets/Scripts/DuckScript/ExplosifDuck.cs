@@ -1,13 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExplosifDuck : MonoBehaviour
 {
 
     private Rigidbody rib;
-    float Speed = 6.0f;
+    float Speed;
     float Cooldown=10.0f;
     [SerializeField] float explosionRadius;
     [SerializeField] float explosionForce;
@@ -17,7 +15,9 @@ public class ExplosifDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        GetComponent<AttackCAC>().changeCACouDistance(true);
+        Speed = GetComponent<BaseDuckScript>().getSpeed();
+        AttackCAC.ATTACK += Attack;
     }
 
     void Attack()
@@ -52,7 +52,9 @@ public class ExplosifDuck : MonoBehaviour
 
         }
     }
-
+    //Le speed est utilisé ici pour son spécial lui permettant de boost. On peut créer une fonction public dans BaseDuckScript getSpeed
+    //Et changeSpeed permettant de manipuler la Speed du duck. Vestige de l'ancien code qui ne mérite pas d'être supprimé actuellement
+    //C'est un cut content, donc ça passe
     IEnumerator Boost()
     {
         Speed=12.0f;
@@ -75,8 +77,13 @@ public class ExplosifDuck : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardModifier, ForceMode.Impulse);
             }
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
+    }
 
 }

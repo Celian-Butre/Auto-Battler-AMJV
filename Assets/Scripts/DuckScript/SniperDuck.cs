@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class SniperDuck : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class SniperDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AttackCAC>().changeCACouDistance(false);
         AttackCAC.ATTACK += Attack;
         STAY=transform.position;
     }
@@ -34,7 +34,7 @@ public class SniperDuck : MonoBehaviour
         transform.position = STAY;
         rib = GetComponent<Rigidbody>();
         //rib.linearVelocity = Vector3.zero;
-        
+/*        
         if (Input.GetKeyDown(KeyCode.R))
         {
 
@@ -50,18 +50,23 @@ public class SniperDuck : MonoBehaviour
             Debug.Log("Special");
             StartCoroutine(Special());
         }
+*/
     }
     //Tir. La variable Shoot est le garde-fou pour �viter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
     {
         Shoot = false;
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
+        BULLET.GetComponent<Lazer>().parent = this.gameObject;
+        BULLET.GetComponent<Lazer>().damage = GetComponent<AttackCAC>().GetDamage();
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Shoot = true;
     }
-
+    //Le cooldown est utilisé ici pour son spécial lui permettant de mitrailler. On peut créer une fonction public dans BaseDuckScript getCooldown
+    //Et changeCooldown permettant de manipuler le cooldown du duck. Vestige de l'ancien code qui ne mérite pas d'être supprimé actuellement
+    //C'est un cut content, donc ça passe
     IEnumerator Special()
     {
         float BackupCooldown = Cooldown;
@@ -69,7 +74,7 @@ public class SniperDuck : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         Cooldown = BackupCooldown;
     }
-    //On tue le signal pour �viter tout probl�mes (conseil de Game Jam)
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;

@@ -8,6 +8,12 @@ public class BoomLazer : MonoBehaviour
     [SerializeField] float explosionForce;
     private float upwardModifier = 0.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+        rib=GetComponent<Rigidbody>();
+    }
+
+
     //Prend tout les rigidbody sauf le sien et leurs applique une force pour les expulser
     private void OnTriggerEnter(Collider other)
     {

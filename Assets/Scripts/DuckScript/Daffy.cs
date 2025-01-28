@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using GLTFast.Schema;
 
 public class Daffy : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class Daffy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AttackCAC>().changeCACouDistance(true);
         AttackCAC.ATTACK += Attack;
     }
 
@@ -27,7 +26,7 @@ public class Daffy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+/*    
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Attaque");
@@ -41,6 +40,7 @@ public class Daffy : MonoBehaviour
             Explode();
 
         }
+*/
     }
 
     IEnumerator Rotate360()
@@ -77,7 +77,7 @@ public class Daffy : MonoBehaviour
             }
         }
     }
-    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;
