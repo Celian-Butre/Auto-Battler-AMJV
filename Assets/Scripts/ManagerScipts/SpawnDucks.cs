@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpawnDucks : MonoBehaviour
 {
@@ -46,6 +47,15 @@ public class SpawnDucks : MonoBehaviour
     [SerializeField] private Sprite defenseModeOn;
     private BaseDuckScript selectedTroopScript;
     [SerializeField] private PastilleManager pastilleManager;
+
+    [SerializeField] private GameObject priceTag;
+    [SerializeField] private GameObject healthTag;
+    [SerializeField] private GameObject movSpeedTag;
+    [SerializeField] private GameObject armorTag;
+    [SerializeField] private GameObject damageTag;
+    [SerializeField] private GameObject attackSpeedTag;
+    [SerializeField] private GameObject descriptionTag;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,6 +81,7 @@ public class SpawnDucks : MonoBehaviour
             whichTroopToSpawn = whichTroopToSpawn % troopIcons.Count;
             ActivateDuckCadre(whichTroopToSpawn);
             currentlySpawningTroop = duckPrefabs[whichTroopToSpawn];
+            updateTroopStats();
         }
 
         if (gameManagerScript.spawningPhase && Input.GetMouseButtonDown(0))
@@ -100,6 +111,11 @@ public class SpawnDucks : MonoBehaviour
                 
             }
         }
+    }
+
+    public void updateTroopStats()
+    {
+        
     }
 
     public void choseIfShowTroopEditPanel()
