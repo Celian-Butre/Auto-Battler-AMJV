@@ -77,7 +77,7 @@ public class Daffy : MonoBehaviour
             }
         }
     }
-    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;

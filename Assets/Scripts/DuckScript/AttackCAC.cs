@@ -35,7 +35,7 @@ public class AttackCAC : MonoBehaviour
     
     IEnumerator coolDown()
     {
-        canAttack = true;
+        canAttack = false;
         yield return new WaitForSeconds(cooldown);
         canAttack = true;
     }
@@ -89,11 +89,11 @@ public class AttackCAC : MonoBehaviour
 
                 }
 
-                if (targetFound & CACouDistance)
+                if (targetFound && CACouDistance)
                 {
                     AttackC(targetToAttack);
                 }
-                else
+                if(targetFound && !CACouDistance)
                 {
                     AttackD();
                 }

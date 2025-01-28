@@ -145,7 +145,7 @@ public class DarkWing : MonoBehaviour
         }
         Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
     }
-    //On tue le signal pour �viter tout probl�mes (conseil de Game Jam)
+    //On tue le signal pour eviter tout problemes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;
