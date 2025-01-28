@@ -35,6 +35,7 @@ public class BaseDuckScript : MonoBehaviour
     [SerializeField] private float baseSpeed;
     private GameObject crown;
     [SerializeField] public int cost = 5;
+    [SerializeField] public List<string> troopStats; 
     
     void Start()
     {

@@ -48,13 +48,13 @@ public class SpawnDucks : MonoBehaviour
     private BaseDuckScript selectedTroopScript;
     [SerializeField] private PastilleManager pastilleManager;
 
-    [SerializeField] private GameObject priceTag;
-    [SerializeField] private GameObject healthTag;
-    [SerializeField] private GameObject movSpeedTag;
-    [SerializeField] private GameObject armorTag;
-    [SerializeField] private GameObject damageTag;
-    [SerializeField] private GameObject attackSpeedTag;
-    [SerializeField] private GameObject descriptionTag;
+    [SerializeField] private TextMeshProUGUI priceTagMesh;
+    [SerializeField] private TextMeshProUGUI healthTagMesh;
+    [SerializeField] private TextMeshProUGUI movSpeedTagMesh;
+    [SerializeField] private TextMeshProUGUI armorTagMesh;
+    [SerializeField] private TextMeshProUGUI damageTagMesh;
+    [SerializeField] private TextMeshProUGUI attackSpeedTagMesh;
+    [SerializeField] private TextMeshProUGUI descriptionTagMesh;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -115,7 +115,14 @@ public class SpawnDucks : MonoBehaviour
 
     public void updateTroopStats()
     {
-        
+        List<string> troopStats = currentlySpawningTroop.GetComponent<BaseDuckScript>().troopStats;
+        priceTagMesh.text = "Prix : " + troopStats[0]; 
+        healthTagMesh.text = "PV : " + troopStats[1];
+        movSpeedTagMesh.text = "Vitesse (Déplacement) : " + troopStats[2];
+        armorTagMesh.text = "Armure : " + troopStats[3];
+        damageTagMesh.text = "Dégats : " + troopStats[4];
+        attackSpeedTagMesh.text = "Vitesse (Attaque) : " + troopStats[5];
+        descriptionTagMesh.text = "Description : " + troopStats[6];e
     }
 
     public void choseIfShowTroopEditPanel()

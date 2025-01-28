@@ -170,6 +170,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 5
   cost: 10
+  troopStats:
+  - 3
+  - 3
+  - 3
+  - 0
+  - 1
+  - 3s
+  - "Rapide, peu cher, et dans la moyenne, submergez votre adversaire avec une arm\xE9e
+    de plumes"
 --- !u!114 &974101544083260372
 MonoBehaviour:
   m_ObjectHideFlags: 0

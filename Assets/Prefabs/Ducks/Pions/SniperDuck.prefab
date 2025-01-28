@@ -204,10 +204,20 @@ MonoBehaviour:
   crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
   attackMode: 1
   baseHealth: 1
+  armor: 0
   healthBarPrefab: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 100
   cost: 10
+  troopStats:
+  - 15
+  - 1
+  - 0
+  - 0
+  - 4
+  - 5s
+  - "Une v\xE9ritable tourelle, ce canard ne se mouillera pas et se contentera de
+    tirer depuis l'autre c\xF4t\xE9 de l'ar\xE8ne"
 --- !u!195 &8920329017503812466
 NavMeshAgent:
   m_ObjectHideFlags: 0

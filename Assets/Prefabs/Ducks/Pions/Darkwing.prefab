@@ -205,10 +205,20 @@ MonoBehaviour:
   crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
   attackMode: 1
   baseHealth: 1
+  armor: 0
   healthBarPrefab: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 5
   cost: 10
+  troopStats:
+  - 10
+  - 6
+  - 2
+  - 1
+  - 2
+  - 2s
+  - "Malgr\xE9 sa cape de Zorro, ce canard n'h\xE9sitera pas \xE0 tirer sur ses ennemies
+    \xE0 distance"
 --- !u!195 &6283511724247146530
 NavMeshAgent:
   m_ObjectHideFlags: 0
