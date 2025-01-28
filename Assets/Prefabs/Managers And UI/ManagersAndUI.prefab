@@ -7904,7 +7904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2905303953479488867, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
       propertyPath: 'levels.Array.data[1]'
-      value: Celian Scene
+      value: "Ar\xE8ne 2"
       objectReference: {fileID: 0}
     - target: {fileID: 2905303953479488867, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
       propertyPath: 'levels.Array.data[2]'
