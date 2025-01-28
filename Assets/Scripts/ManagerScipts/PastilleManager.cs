@@ -29,9 +29,8 @@ public class PastilleManager : MonoBehaviour
             setEnemyPastilles();
         }
 
-        if (!removedPastilles && !gameManagerScript.spawningPhase)
+        if (addedInitialPastilles && !removedPastilles && !gameManagerScript.spawningPhase)
         {
-            Debug.Log("removing");
             removedPastilles = true;
             removeEnemyPastilles();
             removeTeamPastilles();
@@ -42,7 +41,7 @@ public class PastilleManager : MonoBehaviour
     {
         foreach (GameObject enemyDuck in armyManagerScript.getArmy(true))
         {
-            Instantiate(enemyPastillePrefab, enemyDuck.transform);
+            giveXPastilleToY(enemyPastillePrefab, enemyDuck);
         }
     }
 
@@ -67,23 +66,29 @@ public class PastilleManager : MonoBehaviour
     public void setSelectedPastille(GameObject troop)
     {
         removeTroopsPastilles(troop);
-        Instantiate(selectedPastillePrefab, troop.transform);
+        giveXPastilleToY(selectedPastillePrefab, troop);
     }
 
     public void setPlayerPastille(GameObject troop)
     {
         removeTroopsPastilles(troop);
-        Instantiate(playerPastillePrefab, troop.transform);
+        giveXPastilleToY(playerPastillePrefab, troop);
     }
 
     public void removeTroopsPastilles(GameObject troop)
     {
-        foreach (Transform child in troop.transform)
+        Transform PastilleSpawner = troop.transform.Find("pastilleSpawner");
+        foreach (Transform child in PastilleSpawner)
         {
             if (child.CompareTag("Pastille"))
             {
                 Destroy(child.gameObject); 
             }
         }
+    }
+
+    public void giveXPastilleToY(GameObject pastille, GameObject troop)
+    {
+        Instantiate(pastille, troop.transform.Find("pastilleSpawner").transform);
     }
 }
