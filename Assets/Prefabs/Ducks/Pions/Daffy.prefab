@@ -294,6 +294,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 3
   cost: 5
+  troopStats:
+  - 5
+  - 5
+  - 3
+  - 1
+  - 3
+  - 2s
+  - "Daffy, fantassin de base avec une \xE9p\xE9e, est un \xE9l\xE9ment incontournable
+    d'une bonne arm\xE9e"
 --- !u!114 &8537350272084301094
 MonoBehaviour:
   m_ObjectHideFlags: 0

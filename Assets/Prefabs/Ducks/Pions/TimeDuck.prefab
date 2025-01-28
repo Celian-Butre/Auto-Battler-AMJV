@@ -5010,6 +5010,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 5
   cost: 12
+  troopStats:
+  - 12
+  - 4
+  - 5
+  - 0
+  - "7s de g\xE8le"
+  - Usage unique
+  - "Ce canardmikaze g\xE8lera ses adversaires pendant les 7 secondes qui suivent
+    son explosion"
 --- !u!195 &2157941735427254212
 NavMeshAgent:
   m_ObjectHideFlags: 0

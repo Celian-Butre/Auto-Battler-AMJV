@@ -209,6 +209,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 0
   cost: 15
+  troopStats:
+  - 15
+  - 1
+  - 0
+  - 0
+  - 4
+  - 5s
+  - "Une v\xE9ritable tourelle, ce canard ne se mouillera pas et se contentera de
+    tirer depuis l'autre c\xF4t\xE9 de l'ar\xE8ne"
 --- !u!195 &8920329017503812466
 NavMeshAgent:
   m_ObjectHideFlags: 0

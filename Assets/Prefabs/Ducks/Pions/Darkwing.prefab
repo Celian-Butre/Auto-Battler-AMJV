@@ -210,6 +210,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 2
   cost: 10
+  troopStats:
+  - 10
+  - 6
+  - 2
+  - 1
+  - 2
+  - 2s
+  - "Malgr\xE9 sa cape de Zorro, ce canard n'h\xE9sitera pas \xE0 tirer sur ses ennemies
+    \xE0 distance"
 --- !u!195 &6283511724247146530
 NavMeshAgent:
   m_ObjectHideFlags: 0

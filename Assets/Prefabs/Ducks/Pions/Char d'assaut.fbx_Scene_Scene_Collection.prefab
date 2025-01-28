@@ -280,6 +280,14 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 1
   cost: 50
+  troopStats:
+  - 50
+  - 14
+  - 1
+  - 3
+  - 6
+  - 7s
+  - "Lent et lointain, les yeux laser de ce canard d'assaut font tr\xE8s mal"
 --- !u!195 &6497515672725679106
 NavMeshAgent:
   m_ObjectHideFlags: 0

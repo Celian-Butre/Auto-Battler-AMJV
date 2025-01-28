@@ -170,6 +170,15 @@ MonoBehaviour:
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
   baseSpeed: 6
   cost: 10
+  troopStats:
+  - 10
+  - 3
+  - 6
+  - 1
+  - 7
+  - attaque unique
+  - "Ce canardmikaze fait beaucoup de d\xE9gats \xE0 vos adversaires... au prix de
+    sa vie"
 --- !u!195 &4192837230865577824
 NavMeshAgent:
   m_ObjectHideFlags: 0
