@@ -278,6 +278,11 @@ public class BaseDuckScript : MonoBehaviour
         return (isEnemy);
     }
 
+    public float getSpeed()
+    {
+        return (baseSpeed);
+    }
+
     public void setHealthCanvas(GameObject healthCanvas)
     {
         this.healthCanvas = healthCanvas;

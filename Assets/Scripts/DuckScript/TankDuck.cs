@@ -6,7 +6,6 @@ public class TankDuck : MonoBehaviour
 {
     [SerializeField] private GameObject Bout;
     [SerializeField] private GameObject Balle;
-    [SerializeField] private float Cooldown;
     [SerializeField] private float ForceTir;
     private bool Shoot = true;
     private Rigidbody rib;
@@ -39,7 +38,7 @@ public class TankDuck : MonoBehaviour
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Shoot = true;
     }
     //On tue le signal pour éviter tout problèmes (conseil de Game Jam)

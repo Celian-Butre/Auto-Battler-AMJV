@@ -6,14 +6,13 @@ using UnityEngine;
 public class CharDuck : MonoBehaviour
 {
     private Rigidbody rib;
-    float Cooldown = 0.0f;
     [SerializeField] GameObject Lazer;
     [SerializeField] GameObject LazerBoom;
     [SerializeField] GameObject Gauche;
     [SerializeField] GameObject Droit;
     [SerializeField] GameObject Tete;
     [SerializeField] float ForceTir;
-    bool Shoot = true;
+    private bool Shoot=true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,14 +22,17 @@ public class CharDuck : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque");
-        StartCoroutine(Lasers());
+        if (Shoot)
+        {
+            Debug.Log("Attaque");
+            StartCoroutine(Lasers());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+/*
         //à supprimer
 
         
@@ -49,6 +51,7 @@ public class CharDuck : MonoBehaviour
             StartCoroutine(Special());
 
         }
+*/
     }
     //Tire des Lasers des yeux du pion vers la cible (Target). Donc rbg=RigidBodyGauche par exemple.
     IEnumerator Lasers()
@@ -62,7 +65,7 @@ public class CharDuck : MonoBehaviour
         GameObject LazDroite = Instantiate(Lazer, Droit.transform.position, Droit.transform.rotation);
         Rigidbody rbd = LazDroite.GetComponent<Rigidbody>();
         rbd.AddForce(Destination * ForceTir, ForceMode.Impulse);
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Shoot = true;
     }
     //Génere une sphère qui se dirige vers sa cible (Target) pour faire une explosion
@@ -76,7 +79,7 @@ public class CharDuck : MonoBehaviour
         Rigidbody rb = Laz.GetComponent<Rigidbody>();
         rb.AddForce(Destination * ForceTir, ForceMode.Impulse);
         //rb.AddForce(Salse * ForceTir, ForceMode.Impulse);
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Shoot = true;
     }
     //On tue le signal pour éviter tout problèmes (conseil de Game Jam)

@@ -6,17 +6,14 @@ public class TimeDuck: MonoBehaviour
 {
 
     private Rigidbody rib;
-    float Speed = 5.0f;
-    float Cooldown = 100.0f;
+    float Speed;
     [SerializeField] float explosionRadius;
-    float explosionForce = 0.0f;
-    private float upwardModifier = 0.0f;
     [SerializeField] float RangeExplosion;
-
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Speed = GetComponent<BaseDuckScript>().getSpeed();
     }
 
     void Attack()
@@ -38,9 +35,8 @@ public class TimeDuck: MonoBehaviour
                 Attack();
             }
         }
-
+/*
         //à supprimer
-
         if (Input.GetKey(KeyCode.B))
         {
             StartCoroutine(Boost());
@@ -50,14 +46,16 @@ public class TimeDuck: MonoBehaviour
         {
             Debug.Log("Explosion");
             StartCoroutine(Explode());
-
         }
+*/
     }
-
+    //Le speed est utilisé ici pour son spécial lui permettant de boost. On peut créer une fonction public dans BaseDuckScript getSpeed
+    //Et changeSpeed permettant de manipuler la Speed du duck. Vestige de l'ancien code qui ne mérite pas d'être supprimé actuellement
+    //C'est un cut content, donc ça passe
     IEnumerator Boost()
     {
         Speed = 12.0f;
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Speed = 5.0f;
 
     }
@@ -77,7 +75,7 @@ public class TimeDuck: MonoBehaviour
                 rb.isKinematic=true;
                 collider.GetComponent<AttackCAC>().enabled = false;
                 rb.linearVelocity=Vector3.zero;
-                yield return new WaitForSeconds(Cooldown);
+                yield return null;
                 rb.isKinematic = false;
                 collider.GetComponent<AttackCAC>().enabled = true;
             }

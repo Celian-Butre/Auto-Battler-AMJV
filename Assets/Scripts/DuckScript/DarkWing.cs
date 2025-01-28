@@ -7,7 +7,6 @@ public class DarkWing : MonoBehaviour
     [SerializeField] private GameObject Balle;
     [SerializeField] private GameObject Sword;
     [SerializeField] private GameObject Gun;
-    private float Cooldown;
     [SerializeField] private float ForceTir;
     [SerializeField] private float Range;
     private Rigidbody rib;
@@ -92,7 +91,7 @@ public class DarkWing : MonoBehaviour
             }
         }
 
-
+/*
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("DeRender");
@@ -105,6 +104,7 @@ public class DarkWing : MonoBehaviour
             Debug.Log("Special");
             StartCoroutine(Special());
         }
+*/
     }
     //Tir. La variable Shoot est le garde-fou pour �viter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
@@ -113,14 +113,14 @@ public class DarkWing : MonoBehaviour
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
-        yield return new WaitForSeconds(Cooldown);
+        yield return null;
         Shoot = true;
     }
-
+    //Heal
     IEnumerator Special()
     {
 
-        yield return new WaitForSeconds(5.0f);
+        yield return null;
 
     }
 
@@ -128,8 +128,8 @@ public class DarkWing : MonoBehaviour
     {
 
         bool IsFinish = true;
-        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'� ce que les conditions match
-        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degr�, l'autre s'active apr�s une demie rotation;
+        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'a ce que les conditions match
+        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degre, l'autre s'active apres une demie rotation;
         while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x) > 0.05f)
         {
             //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));

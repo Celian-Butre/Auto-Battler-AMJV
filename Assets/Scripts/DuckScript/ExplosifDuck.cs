@@ -7,7 +7,7 @@ public class ExplosifDuck : MonoBehaviour
 {
 
     private Rigidbody rib;
-    float Speed = 6.0f;
+    float Speed;
     float Cooldown=10.0f;
     [SerializeField] float explosionRadius;
     [SerializeField] float explosionForce;
@@ -17,7 +17,7 @@ public class ExplosifDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Speed = GetComponent<BaseDuckScript>().getSpeed();
     }
 
     void Attack()
@@ -52,7 +52,9 @@ public class ExplosifDuck : MonoBehaviour
 
         }
     }
-
+    //Le speed est utilisé ici pour son spécial lui permettant de boost. On peut créer une fonction public dans BaseDuckScript getSpeed
+    //Et changeSpeed permettant de manipuler la Speed du duck. Vestige de l'ancien code qui ne mérite pas d'être supprimé actuellement
+    //C'est un cut content, donc ça passe
     IEnumerator Boost()
     {
         Speed=12.0f;

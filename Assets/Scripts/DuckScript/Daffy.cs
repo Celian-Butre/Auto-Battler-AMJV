@@ -27,7 +27,7 @@ public class Daffy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+/*    
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Attaque");
@@ -41,6 +41,7 @@ public class Daffy : MonoBehaviour
             Explode();
 
         }
+*/
     }
 
     IEnumerator Rotate360()
