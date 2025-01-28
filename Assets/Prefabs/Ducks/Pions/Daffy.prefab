@@ -244,7 +244,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -288,11 +288,12 @@ MonoBehaviour:
   gameManagerEntity: {fileID: 0}
   crownPrefab: {fileID: 7984738989132733488, guid: b7cd7178d1e5d177dbc0224f04cfd93d, type: 3}
   attackMode: 1
-  baseHealth: 1
+  baseHealth: 5
+  armor: 1
   healthBarPrefab: {fileID: 2974273519851044028, guid: d12d8ca90ec549c1f9244d3c0837bded, type: 3}
   healthCanvas: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
-  baseSpeed: 5
-  cost: 10
+  baseSpeed: 3
+  cost: 5
 --- !u!114 &8537350272084301094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,5 +307,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1
-  damage: 0
-  cooldown: 5
+  damage: 3
+  cooldown: 2
