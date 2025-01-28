@@ -122,7 +122,7 @@ public class SpawnDucks : MonoBehaviour
         armorTagMesh.text = "Armure : " + troopStats[3];
         damageTagMesh.text = "Dégats : " + troopStats[4];
         attackSpeedTagMesh.text = "Vitesse (Attaque) : " + troopStats[5];
-        descriptionTagMesh.text = "Description : " + troopStats[6];e
+        descriptionTagMesh.text = "Description : " + troopStats[6];
     }
 
     public void choseIfShowTroopEditPanel()
