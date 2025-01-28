@@ -20,6 +20,7 @@ public class DarkWing : MonoBehaviour
     void Start()
     {
         AttackCAC.ATTACK += Attack;
+        BladeGun = true;
     }
 
     // Update is called once per frame
@@ -27,8 +28,19 @@ public class DarkWing : MonoBehaviour
     void Attack()
     {
         Debug.Log("Attaque");
-        StartCoroutine(Tir());
-        BladeGun = true;
+        if (!BladeGun) 
+        {
+            if(Shoot)
+            {
+                StartCoroutine(Tir());
+            }
+        }
+        else
+        {
+            StartCoroutine(Rotate360());
+        }
+        
+
     }
     void Update()
     {
@@ -91,7 +103,7 @@ public class DarkWing : MonoBehaviour
             StartCoroutine(Special());
         }
     }
-
+    //Tir. La variable Shoot est le garde-fou pour éviter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
     {
         Shoot = false;
@@ -113,7 +125,8 @@ public class DarkWing : MonoBehaviour
     {
 
         bool IsFinish = true;
-
+        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'à ce que les conditions match
+        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degré, l'autre s'active après une demie rotation;
         while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x) > 0.05f)
         {
             //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
@@ -126,7 +139,7 @@ public class DarkWing : MonoBehaviour
         }
         Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
     }
-
+    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;

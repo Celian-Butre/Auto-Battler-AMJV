@@ -11,6 +11,7 @@ public class TimeDuck: MonoBehaviour
     [SerializeField] float explosionRadius;
     float explosionForce = 0.0f;
     private float upwardModifier = 0.0f;
+    [SerializeField] float RangeExplosion;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,33 +19,28 @@ public class TimeDuck: MonoBehaviour
 
     }
 
+    void Attack()
+    {
+        Debug.Log("Attaque");
+        Explode();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //Prend sa cible et regarde sa distance pour voir quelle arme prendre contre lui
+        GameObject Target = GetComponent<AttackCAC>().GetTarget();
+        if (Target != null)
+        {
+            Vector3 RangeWeapon = Target.transform.position - transform.position;
+            if (RangeWeapon.magnitude < RangeExplosion)
+            {
+                Attack();
+            }
+        }
 
         //à supprimer
 
-        float ROT = 100.0f;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("avancer");
-            transform.Translate(Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("reculer");
-            transform.Translate(-Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
         if (Input.GetKey(KeyCode.B))
         {
             StartCoroutine(Boost());
@@ -79,14 +75,16 @@ public class TimeDuck: MonoBehaviour
             if (rb != null & rb != rib & rb.isKinematic==false)
             {
                 rb.isKinematic=true;
-                collider.transform.position=new Vector3(0.0f,2.0f,0.0f);
+                collider.GetComponent<AttackCAC>().enabled = false;
                 rb.linearVelocity=Vector3.zero;
                 yield return new WaitForSeconds(Cooldown);
                 rb.isKinematic = false;
+                collider.GetComponent<AttackCAC>().enabled = true;
             }
             
 
         }
+        Destroy(gameObject);
 
     }
 }

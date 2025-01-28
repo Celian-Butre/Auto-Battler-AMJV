@@ -1,11 +1,11 @@
 using GLTFast.Schema;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharDuck : MonoBehaviour
 {
     private Rigidbody rib;
-    float Speed = 5.0f;
     float Cooldown = 0.0f;
     [SerializeField] GameObject Lazer;
     [SerializeField] GameObject LazerBoom;
@@ -18,7 +18,13 @@ public class CharDuck : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        AttackCAC.ATTACK += Attack;
+    }
 
+    void Attack()
+    {
+        Debug.Log("Attaque");
+        StartCoroutine(Lasers());
     }
 
     // Update is called once per frame
@@ -27,27 +33,7 @@ public class CharDuck : MonoBehaviour
 
         //à supprimer
 
-        float ROT = 100.0f;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("avancer");
-            transform.Translate(Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("reculer");
-            transform.Translate(-Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
+        
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (Shoot)
@@ -64,7 +50,7 @@ public class CharDuck : MonoBehaviour
 
         }
     }
-
+    //Tire des Lasers des yeux du pion vers la cible (Target). Donc rbg=RigidBodyGauche par exemple.
     IEnumerator Lasers()
     {
         Shoot = false;
@@ -79,7 +65,7 @@ public class CharDuck : MonoBehaviour
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;
     }
-
+    //Génere une sphère qui se dirige vers sa cible (Target) pour faire une explosion
     IEnumerator Special()
     {
         Shoot = false;
@@ -92,5 +78,10 @@ public class CharDuck : MonoBehaviour
         //rb.AddForce(Salse * ForceTir, ForceMode.Impulse);
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;
+    }
+    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
     }
 }

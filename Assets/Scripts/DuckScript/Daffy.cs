@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using GLTFast.Schema;
 
 public class Daffy : MonoBehaviour
 {
     [SerializeField] private GameObject Sword;
     private Rigidbody rib;
-    float RotSpeed = 300.0f;
-
+    private float RotSpeed = 300.0f;
     [SerializeField] float explosionRadius;  
     [SerializeField] float explosionForce;  
     private float upwardModifier = 0.0f;
@@ -14,35 +15,19 @@ public class Daffy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        AttackCAC.ATTACK += Attack;
+    }
+
+    void Attack()
+    {
+        Debug.Log("Attaque");
+        StartCoroutine(Rotate360());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //à supprimer
-        float SPEED = 3.0f;
-        float ROT = 100.0f;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("avancer");
-            transform.Translate(Vector3.forward * Time.deltaTime * SPEED);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("reculer");
-            transform.Translate(-Vector3.forward * Time.deltaTime * SPEED);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Attaque");
@@ -62,7 +47,8 @@ public class Daffy : MonoBehaviour
     {
 
         bool IsFinish = true;
-
+        //Clairement pas ouf, mais je sais faire autrement. Tourne jusqu'à ce que les conditions match
+        //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degré, l'autre s'active après une demie rotation;
         while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x)>0.05f)
         {
             //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
@@ -75,7 +61,7 @@ public class Daffy : MonoBehaviour
         }
         Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
     }
-
+    //Prend tout les rigidbody sauf le sien et leurs applique une force pour les expulser
     void Explode()
     {
         rib = GetComponent<Rigidbody>();
@@ -90,6 +76,11 @@ public class Daffy : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardModifier, ForceMode.Impulse);
             }
         }
+    }
+    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    void OnDestroy()
+    {
+        AttackCAC.ATTACK -= Attack;
     }
 }
 

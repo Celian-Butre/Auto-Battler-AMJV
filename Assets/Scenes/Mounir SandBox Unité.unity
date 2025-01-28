@@ -12637,11 +12637,11 @@ Transform:
   m_GameObject: {fileID: 554820876}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -2}
+  m_LocalPosition: {x: 9.35, y: 6.84, z: 7.5839996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 958123473}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &555273612
 PrefabInstance:
@@ -12783,12 +12783,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556248301}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 983a511a5a7517b478b8909da220e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 100
+  RangeExplosion: 0
 --- !u!54 &556248303
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16005,13 +16006,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701415936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c634d25b1c457f42ade841848d6f3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 6
   explosionForce: 10
+  RangeExplosion: 0
 --- !u!65 &701415939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17156,6 +17158,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8254315445791711713, guid: f4cdbde39ff51b94d8499256fb2a3373, type: 3}
   m_PrefabInstance: {fileID: 1516628858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &758746542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebee3158c71e66e4c9497053ccf4ab68, type: 3}
+  m_PrefabInstance: {fileID: 1271960997}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &761553966
 PrefabInstance:
@@ -21866,9 +21873,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3906bf0df5bb01498eb50dc0d64d3b8, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 554820879}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3906bf0df5bb01498eb50dc0d64d3b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1271960998}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3906bf0df5bb01498eb50dc0d64d3b8, type: 3}
@@ -21958,7 +21962,9 @@ MonoBehaviour:
   Bout: {fileID: 1070745121}
   Balle: {fileID: 3944307179814824675, guid: c5fbdfebe98b5e341b62e2eca0b58c9d, type: 3}
   Sword: {fileID: 253353982}
+  Gun: {fileID: 758746542}
   ForceTir: 2
+  Range: 4
 --- !u!1001 &960422927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46370,7 +46376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7095518e7b62b6349b8c77f834a750f1, type: 3}
       propertyPath: m_Name
-      value: "Unit\xE9 chevalier daffy"
+      value: Daffy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46409,7 +46415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107736248}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20a6bc784cd0f59468144811378ea18d, type: 3}
   m_Name: 
@@ -47239,6 +47245,7 @@ SceneRoots:
   - {fileID: 901472486}
   - {fileID: 2107736247}
   - {fileID: 1011941386}
+  - {fileID: 554820879}
   - {fileID: 701415935}
   - {fileID: 556248300}
   - {fileID: 835553516}

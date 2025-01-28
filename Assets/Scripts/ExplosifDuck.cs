@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,41 +11,35 @@ public class ExplosifDuck : MonoBehaviour
     float Cooldown=10.0f;
     [SerializeField] float explosionRadius;
     [SerializeField] float explosionForce;
+    [SerializeField] float RangeExplosion;
     private float upwardModifier = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
+    }
+
+    void Attack()
+    {
+        Debug.Log("Attaque");
+        Explode();
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject Target = GetComponent<AttackCAC>().GetTarget();
+        if (Target != null)
+        {
+            Vector3 RangeWeapon = Target.transform.position - transform.position;
+            if (RangeWeapon.magnitude < RangeExplosion)
+            {
+                Attack();
+            }
+        }
 
-        //à supprimer
 
-        float ROT = 100.0f;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("avancer");
-            transform.Translate(Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("reculer");
-            transform.Translate(-Vector3.forward * Time.deltaTime * Speed);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("tourner la tête à gauche");
-            transform.Rotate(0.0f, -ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("tourner la tête à droite");
-            transform.Rotate(0.0f, ROT * Time.deltaTime, 0.0f, Space.Self);
-        }
         if (Input.GetKey(KeyCode.B))
         {
             StartCoroutine(Boost());
@@ -65,7 +60,7 @@ public class ExplosifDuck : MonoBehaviour
         Speed = 6.0f;
 
     }
-
+    //Prend tout les rigidbody sauf le sien et leurs applique une force pour les expulser
     void Explode()
     {
         rib = GetComponent<Rigidbody>();
@@ -80,6 +75,8 @@ public class ExplosifDuck : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardModifier, ForceMode.Impulse);
             }
         }
-
+        Destroy(gameObject);
     }
+
+
 }

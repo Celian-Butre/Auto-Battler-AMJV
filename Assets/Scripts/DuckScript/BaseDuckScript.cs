@@ -56,6 +56,13 @@ public class BaseDuckScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Pour que le Duck regarde sa cible constamment !!
+        if (GetComponent<AttackCAC>().GetTarget() != null)
+        {
+            transform.LookAt(GetComponent<AttackCAC>().GetTarget().transform);
+        }
+
+
         if (gameManagerScript.combatPhase)
         {
             updateMovement();

@@ -10,7 +10,6 @@ public class SniperDuck : MonoBehaviour
     [SerializeField] private float ForceTir;
     private Rigidbody rib;
     private bool Shoot = true;
-    float RotSpeed = 300.0f;
     Vector3 STAY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,14 +23,18 @@ public class SniperDuck : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque");
-        StartCoroutine(Tir());
+        if(Shoot)
+        {
+            Debug.Log("Attaque");
+            StartCoroutine(Tir());
+        }
     }
     void Update()
     {
         transform.position = STAY;
         rib = GetComponent<Rigidbody>();
         rib.linearVelocity = Vector3.zero;
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
 
@@ -48,7 +51,7 @@ public class SniperDuck : MonoBehaviour
             StartCoroutine(Special());
         }
     }
-
+    //Tir. La variable Shoot est le garde-fou pour éviter de tirer sans prendre en compte le cooldown
     IEnumerator Tir()
     {
         Shoot = false;
@@ -66,7 +69,7 @@ public class SniperDuck : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         Cooldown = BackupCooldown;
     }
-
+    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;
