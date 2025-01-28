@@ -23,7 +23,7 @@ public class CharDuck : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque");
+        //Debug.Log("Attaque");
         StartCoroutine(Lasers());
     }
 
@@ -31,14 +31,14 @@ public class CharDuck : MonoBehaviour
     void Update()
     {
 
-        //à supprimer
+        //ï¿½ supprimer
 
         
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (Shoot)
             {
-                Debug.Log("Attack !!");
+                //Debug.Log("Attack !!");
                 StartCoroutine(Lasers());
             }
         }
@@ -65,7 +65,7 @@ public class CharDuck : MonoBehaviour
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;
     }
-    //Génere une sphère qui se dirige vers sa cible (Target) pour faire une explosion
+    //Gï¿½nere une sphï¿½re qui se dirige vers sa cible (Target) pour faire une explosion
     IEnumerator Special()
     {
         Shoot = false;
@@ -79,7 +79,7 @@ public class CharDuck : MonoBehaviour
         yield return new WaitForSeconds(Cooldown);
         Shoot = true;
     }
-    //On tue le signal pour éviter tout problèmes (conseil de Game Jam)
+    //On tue le signal pour ï¿½viter tout problï¿½mes (conseil de Game Jam)
     void OnDestroy()
     {
         AttackCAC.ATTACK -= Attack;
