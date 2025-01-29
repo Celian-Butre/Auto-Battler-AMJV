@@ -452,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bout: {fileID: 4049202432697196371}
   Balle: {fileID: 3944307179814824675, guid: c5fbdfebe98b5e341b62e2eca0b58c9d, type: 3}
-  ForceTir: 2
+  ForceTir: 100
 --- !u!114 &7917600778656245235
 MonoBehaviour:
   m_ObjectHideFlags: 0

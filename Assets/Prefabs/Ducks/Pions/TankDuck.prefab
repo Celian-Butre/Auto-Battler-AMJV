@@ -512,8 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bout: {fileID: 7625617004253501370}
   Balle: {fileID: 208247955766032240, guid: 55180a1ecd7d5fa45a7821fd9938e626, type: 3}
-  Cooldown: 0
-  ForceTir: 20
+  ForceTir: 150
 --- !u!114 &3180502994822879386
 MonoBehaviour:
   m_ObjectHideFlags: 0

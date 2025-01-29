@@ -436,7 +436,7 @@ MonoBehaviour:
   Balle: {fileID: 3944307179814824675, guid: c5fbdfebe98b5e341b62e2eca0b58c9d, type: 3}
   Sword: {fileID: 3317601015916944223}
   Gun: {fileID: 5159185739102101288}
-  ForceTir: 30
+  ForceTir: 100
   Range: 2
 --- !u!54 &4421711335251445044
 Rigidbody:
