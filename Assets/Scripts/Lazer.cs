@@ -4,7 +4,6 @@ public class Lazer : MonoBehaviour
 {
     private float i = 0.0f;
     public float damage;
-    public GameObject parent; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter(Collider other)
     {

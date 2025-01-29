@@ -27,7 +27,7 @@ public class TankDuck : MonoBehaviour
     {
         if (Shoot)
         {
-            Debug.Log("Attaque");
+            //Debug.Log("Attaque");
             StartCoroutine(Tir());
         }
     }
@@ -36,6 +36,7 @@ public class TankDuck : MonoBehaviour
     {
         Shoot = false;
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
+        BULLET.GetComponent<Lazer>().damage = GetComponent<AttackCAC>().GetDamage();
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
         yield return null;

@@ -20,7 +20,7 @@ public class TimeDuck: MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque TIME");
+        ////Debug.Log("Attaque TIME");
         StartCoroutine(Explode());
     }
 
@@ -46,7 +46,7 @@ public class TimeDuck: MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Explosion");
+            //Debug.Log("Explosion");
             StartCoroutine(Explode());
         }
 */

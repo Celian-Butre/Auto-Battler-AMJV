@@ -37,10 +37,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Texture goldSprite;
     [SerializeField] private Texture notBeatenSprite;
     [SerializeField] public List<string> levels;
+    private Scene scene;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //On prend la scene pour connaitre son id
+
+        scene = SceneManager.GetActiveScene();
+        currentLevel = scene.buildIndex;
+        Debug.Log(currentLevel);
+
         wonCanvas.SetActive(false);
         lostCanvas.SetActive(false);
         coinDisplayCanvas.SetActive(false);
@@ -144,6 +151,10 @@ public class GameManager : MonoBehaviour
                         winHighScoreImage.texture = goldSprite;
                         break;
                 }
+                if (currentLevel > 4)
+                {
+                    SceneManager.LoadScene(0);
+                }
             }
             else
             {
@@ -206,7 +217,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(levels[currentLevel]);
     }
-
+    
     public void replayLevel()
     {
         SceneManager.LoadScene(levels[currentLevel-1]);

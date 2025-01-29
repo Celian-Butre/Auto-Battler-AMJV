@@ -25,7 +25,7 @@ public class SniperDuck : MonoBehaviour
     {
         if(Shoot)
         {
-            Debug.Log("Attaque");
+            //Debug.Log("Attaque");
             StartCoroutine(Tir());
         }
     }
@@ -40,14 +40,14 @@ public class SniperDuck : MonoBehaviour
 
             if (Shoot)
             {
-                Debug.Log("Attaque");
+                //Debug.Log("Attaque");
                 StartCoroutine(Tir());
             }
 
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Special");
+            //Debug.Log("Special");
             StartCoroutine(Special());
         }
 */
@@ -57,7 +57,6 @@ public class SniperDuck : MonoBehaviour
     {
         Shoot = false;
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
-        BULLET.GetComponent<Lazer>().parent = this.gameObject;
         BULLET.GetComponent<Lazer>().damage = GetComponent<AttackCAC>().GetDamage();
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);

@@ -22,7 +22,7 @@ public class ExplosifDuck : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque");
+        //Debug.Log("Attaque");
         Explode();
     }
 
@@ -47,7 +47,7 @@ public class ExplosifDuck : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Explosion");
+            //Debug.Log("Explosion");
             Explode();
 
         }

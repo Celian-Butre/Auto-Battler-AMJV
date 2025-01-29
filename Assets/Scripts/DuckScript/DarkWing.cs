@@ -27,7 +27,7 @@ public class DarkWing : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attaque");
+        //Debug.Log("Attaque");
         if (!BladeGun) 
         {
             if(Shoot)
@@ -70,7 +70,7 @@ public class DarkWing : MonoBehaviour
 
                 if (Shoot)
                 {
-                    Debug.Log("Attaque Shoot");
+                    //Debug.Log("Attaque Shoot");
                     StartCoroutine(Tir());
                 }
 
@@ -87,7 +87,7 @@ public class DarkWing : MonoBehaviour
 
                 if (Shoot)
                 {
-                    Debug.Log("Attaque Sword");
+                    //Debug.Log("Attaque Sword");
                     StartCoroutine(Rotate360());
                 }
 
@@ -97,14 +97,14 @@ public class DarkWing : MonoBehaviour
 /*
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Debug.Log("DeRender");
+            //Debug.Log("DeRender");
             //SetRenderState(Sword,false);
             Sword.SetActive(false);
         }
         
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Special");
+            //Debug.Log("Special");
             StartCoroutine(Special());
         }
 */
@@ -114,6 +114,7 @@ public class DarkWing : MonoBehaviour
     {
         Shoot = false;
         GameObject BULLET = Instantiate(Balle, Bout.transform.position, Bout.transform.rotation);
+        BULLET.GetComponent<Lazer>().damage = GetComponent<AttackCAC>().GetDamage();
         Rigidbody rb = BULLET.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * ForceTir, ForceMode.Impulse);
         yield return null;
@@ -135,7 +136,7 @@ public class DarkWing : MonoBehaviour
         //Ie que les 2 bool soit faux, l'un s'active quand il est proche de 0 degre, l'autre s'active apres une demie rotation;
         while (IsFinish || Mathf.Abs(Sword.transform.localRotation.x) > 0.05f)
         {
-            //Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
+            ////Debug.Log(Mathf.Abs(Sword.transform.localRotation.x));
             Sword.transform.Rotate(RotSpeed * Time.deltaTime, 0.0f, 0.0f);
             if (Mathf.Abs(Sword.transform.localRotation.x) > 0.1f)
             {

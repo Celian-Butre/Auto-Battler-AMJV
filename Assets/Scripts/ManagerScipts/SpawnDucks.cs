@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class SpawnDucks : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class SpawnDucks : MonoBehaviour
     private int whichTroopToSpawn = 0;
     private GameObject currentlySpawningTroop;
     private GameObject selectedTroop;
+
+    private bool UiAllow;
+    [SerializeField] GraphicRaycaster raycaster;
+    [SerializeField] EventSystem eventSystem;
     [SerializeField] public GameObject troopEditPanel;
     [SerializeField] private Button crownButton;
     [SerializeField] private Sprite hasCrownButton;
@@ -60,7 +65,6 @@ public class SpawnDucks : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
         armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
         troopEditPanel.SetActive(false);
@@ -72,9 +76,19 @@ public class SpawnDucks : MonoBehaviour
         updateTroopStats();
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
+        if (IsPointerOverUIElement())
+        {
+            UiAllow = false;
+        }
+        else
+        {
+            UiAllow = true;
+        }
         choseIfShowTroopEditPanel();
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -98,7 +112,7 @@ public class SpawnDucks : MonoBehaviour
                     setSelectedTroop(hitDuck.transform.gameObject);
                 }
             } else if(didHitGround && (!didHitNoSpawn || hitGround.distance < hitNoSpawn.distance) && (!didHitDuck || hitGround.distance < hitDuck.distance)){
-                if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost <= gameManagerScript.currentCoins)
+                if (currentlySpawningTroop.GetComponent<BaseDuckScript>().cost <= gameManagerScript.currentCoins && UiAllow)
                 { 
                     GameObject newDuck = Instantiate(currentlySpawningTroop, (hitGround.point + new Vector3(0f, currentlySpawningTroop.transform.Find("TigeUI").GetComponent<Renderer>().bounds.size.y * 0.8f,0f)), Quaternion.identity);
                     BaseDuckScript duckScript = newDuck.GetComponent<BaseDuckScript>();
@@ -194,5 +208,16 @@ public class SpawnDucks : MonoBehaviour
         selectedTroop = troop;
         selectedTroopScript = selectedTroop.GetComponent<BaseDuckScript>();
         pastilleManager.setSelectedPastille(troop);
+    }
+
+    private bool IsPointerOverUIElement()
+    {
+        PointerEventData eventData = new PointerEventData(eventSystem);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycaster.Raycast(eventData, results);
+
+        return results.Count > 0;  // Returns true if the mouse is over any UI element
     }
 }

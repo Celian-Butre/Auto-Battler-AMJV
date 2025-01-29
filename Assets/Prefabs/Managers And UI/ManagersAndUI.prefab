@@ -5907,6 +5907,8 @@ GameObject:
   - component: {fileID: 4564045644917251647}
   - component: {fileID: 726441956981457773}
   - component: {fileID: 7059239950913079474}
+  - component: {fileID: 1439445306518890469}
+  - component: {fileID: 286500166797219247}
   m_Layer: 5
   m_Name: troop edit menu
   m_TagString: Untagged
@@ -5974,6 +5976,46 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &1439445306518890469
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870496998957818242}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &286500166797219247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870496998957818242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7962171165468069338
 GameObject:
   m_ObjectHideFlags: 0
@@ -7927,6 +7969,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2902891651849635349}
     - target: {fileID: 4260040353481009048, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
+      propertyPath: raycaster
+      value: 
+      objectReference: {fileID: 286500166797219247}
+    - target: {fileID: 4260040353481009048, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
       propertyPath: chosenCadre
       value: 
       objectReference: {fileID: 21300000, guid: 8c7135ce2d02160bca524437dff16b6d, type: 3}
@@ -8106,6 +8152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 7084469440818071535, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3421645567523393970, guid: c8263e2cc2f17a69da9cff5eb7e490e9, type: 3}
@@ -8255,6 +8305,10 @@ PrefabInstance:
     - target: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
       propertyPath: m_Name
       value: HealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654134799514054209, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8967766777345686235, guid: d6c43d41f508d7ee388d732f9cc31dd6, type: 3}
       propertyPath: m_UiScaleMode

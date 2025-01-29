@@ -105,13 +105,13 @@ public class AttackCAC : MonoBehaviour
     {
         StartCoroutine(coolDown());
         targetToAttack.GetComponent<BaseDuckScript>().TakeDamage(damage);
-        Debug.Log("Corps à corps");
+        //Debug.Log("Corps à corps");
         ATTACK.Invoke();
     }
 
     private void AttackD()
     {
-        Debug.Log("DISTANCE");
+        //Debug.Log("DISTANCE");
         StartCoroutine(coolDown());
 
         ATTACK.Invoke();
