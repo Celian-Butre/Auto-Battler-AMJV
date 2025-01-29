@@ -68,9 +68,9 @@ public class SpawnDucks : MonoBehaviour
         gameManagerScript = gameManagerEntity.GetComponent<GameManager>();
         armyManagerScript = armyManagerEntity.GetComponent<ArmyManager>();
         troopEditPanel.SetActive(false);
-        groundLayerMask = LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
+        groundLayerMask = LayerMask.GetMask("SpawnZone");
         duckLayerMask = LayerMask.GetMask("Duck");
-        noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall");
+        noSpawnLayerMask = LayerMask.GetMask("Water") | LayerMask.GetMask("Wall") | LayerMask.GetMask("Dirt") | LayerMask.GetMask("Sand");
         currentlySpawningTroop = duckPrefabs[0];
         ActivateDuckCadre(0);
         updateTroopStats();

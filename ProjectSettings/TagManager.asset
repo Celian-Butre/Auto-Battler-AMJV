@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pastille
+  - Unit
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Duck
   - Sand
   - Dirt
-  - 
+  - SpawnZone
   - 
   - 
   - 
